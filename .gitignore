@@ -1,1 +1,10 @@
 pruebas/*
+
+# ignore source data
+*.csv
+
+# ignore generated mapping
+*.new*
+
+# ignore generated snapshot
+*snapshot.pkl
