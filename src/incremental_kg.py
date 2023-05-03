@@ -97,10 +97,13 @@ def load_kg_aux_to_disk(aux_data_path: str, mapping_file: str, snapshot_file: st
     # TODO: delete temp data dir?
 
     # return old_graph + new_graph
-    return new_graph if old_graph is None else old_graph + new_graph
+    if old_graph is None:
+        return new_graph
+    print("Concatenaing old and new graphs")
+    return old_graph + new_graph
 
 
-def load_kg_aux_to_mem(mapping_file: str, snapshot_file: str, old_graph: rdflib.Graph):
+def load_kg_aux_to_mem(aux_data_path: str, mapping_file: str, snapshot_file: str, old_graph: rdflib.Graph):
     """mapping: path to mapping file
     snapshot: path to snapshot file
     old_graph: None or old version
@@ -136,7 +139,7 @@ def load_kg_aux_to_mem(mapping_file: str, snapshot_file: str, old_graph: rdflib.
     # Calculate diff between every new and old file
     for source_file in all_sources:
         # read dataframes
-        df_ds = pd.read_csv(source_file, dtype=str) # source dataframe
+        df_ds = pd.read_csv('data/' + source_file + '.csv', dtype=str) # source dataframe
         df_sp = pd.DataFrame() if new_version else sp[source_file] # snapshot dataframe
         
         # find differences (assumes that new data is only in df_datasource)
@@ -153,7 +156,10 @@ def load_kg_aux_to_mem(mapping_file: str, snapshot_file: str, old_graph: rdflib.
         # save current snapshot = old + new
         sp[source_file] = pd.concat([df_sp, new_data]) # should not have duplicates
     
+    #print(new_data_dict)
+    
     # Save snaphsot
+    # TODO: Create parent dir if it does not exist
     with open(snapshot_file, 'wb') as f:
         pickle.dump(obj=sp, file=f)
         print("Saved snapshot to", snapshot_file)
@@ -167,10 +173,12 @@ def load_kg_aux_to_mem(mapping_file: str, snapshot_file: str, old_graph: rdflib.
         PREFIX rml: <http://semweb.mmlab.be/ns/rml#>
         PREFIX sd: <https://w3id.org/okn/o/sd/>
         PREFIX ql: <http://semweb.mmlab.be/ns/ql#>
+        PREFIX kg4di: <https://w3id.org/kg4di/definedBy#>
             
         DELETE {
-            ?source rml:source ?source_file.
-            ?source ?r ?t.
+            ?source a rml:LogicalSource;
+                rml:source ?source_file;
+                rml:referenceFormulation ?format.
         }
         INSERT {
             #?source rml:source ?source_file. # TODO: remove this
@@ -179,21 +187,27 @@ def load_kg_aux_to_mem(mapping_file: str, snapshot_file: str, old_graph: rdflib.
                     a sd:DatasetSpecification;
                     sd:name ?source_file;
                     sd:hasDataTransformation [
-                        sd:hasSoftwareRequirements "pandas>=1.1.0";
+                        sd:hasSoftwareRequirements "pandas>=1.5.3";
                         sd:hasSourceCode [
                             sd:programmingLanguage "Python3.9";
 			            ];
 		            ];
-                ].
+                    
+                ];
+                rml:referenceFormulation ql:DataFrame.
+            ql:DataFrame a rml:ReferenceFormulation;
+	            kg4di:definedBy "Pandas".
         }
         WHERE {
-            ?source rml:source ?source_file.
+            ?source a rml:LogicalSource;
+                rml:source ?source_file;
+                rml:referenceFormulation ?format.
         }
       """
     mapping_graph.update(query_update)
     
     # Save new mapping
-    new_mapping_file = '.aux_' + mapping_file
+    new_mapping_file = aux_data_path + '/.aux_' + mapping_file
     mapping_graph.serialize(new_mapping_file)
 
     config = "[GTFS-Madrid-Bench]\nmappings: %s" % new_mapping_file
@@ -202,7 +216,10 @@ def load_kg_aux_to_mem(mapping_file: str, snapshot_file: str, old_graph: rdflib.
     # TODO: delete temp mapping file?
 
     # return old_graph + new_graph
-    return new_graph if old_graph is None else old_graph + new_graph
+    if old_graph is None:
+        return new_graph
+    print("Concatenaing old and new graphs")
+    return old_graph + new_graph
 
 
 def _old_load_kg(aux_data_path: str, mapping_file: str, snapshot_file: str, old_graph: rdflib.Graph, method: str):
