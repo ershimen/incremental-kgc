@@ -199,7 +199,7 @@ def load_kg_aux_to_mem(mapping_file: str, snapshot_file: str, old_graph: rdflib.
     config = "[GTFS-Madrid-Bench]\nmappings: %s" % new_mapping_file
     new_graph = morph_kgc.materialize(config, new_data_dict)
 
-    # TODO: delete temp data dir?
+    # TODO: delete temp mapping file?
 
     # return old_graph + new_graph
     return new_graph if old_graph is None else old_graph + new_graph

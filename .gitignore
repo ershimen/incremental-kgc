@@ -8,3 +8,5 @@ pruebas/*
 
 # ignore generated snapshot
 *snapshot.pkl
+
+*__pycache__
