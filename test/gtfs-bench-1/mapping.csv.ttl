@@ -21,7 +21,7 @@
     void:exampleResource :map_stoptimes_000.
 :map_stoptimes_000 rml:logicalSource :source_000.
 :source_000 a rml:LogicalSource;
-    rml:source "STOP_TIMES";
+    rml:source "data/STOP_TIMES.csv";
     rml:referenceFormulation ql:CSV.
 :map_stoptimes_000 a rr:TriplesMap;
     rdfs:label "stoptimes".
@@ -116,7 +116,7 @@
 :rules_000 void:exampleResource :map_trips_000.
 :map_trips_000 rml:logicalSource :source_001.
 :source_001 a rml:LogicalSource;
-    rml:source "TRIPS";
+    rml:source "data/TRIPS.csv";
     rml:referenceFormulation ql:CSV.
 :map_trips_000 a rr:TriplesMap;
     rdfs:label "trips".
@@ -198,7 +198,7 @@
 :rules_000 void:exampleResource :map_routes_000.
 :map_routes_000 rml:logicalSource :source_002.
 :source_002 a rml:LogicalSource;
-    rml:source "ROUTES";
+    rml:source "data/ROUTES.csv";
     rml:referenceFormulation ql:CSV.
 :map_routes_000 a rr:TriplesMap;
     rdfs:label "routes".
@@ -286,7 +286,7 @@
 :rules_000 void:exampleResource :map_agency_000.
 :map_agency_000 rml:logicalSource :source_003.
 :source_003 a rml:LogicalSource;
-    rml:source "AGENCY";
+    rml:source "data/AGENCY.csv";
     rml:referenceFormulation ql:CSV.
 :map_agency_000 a rr:TriplesMap;
     rdfs:label "agency".
@@ -359,7 +359,7 @@
 :rules_000 void:exampleResource :map_stops_000.
 :map_stops_000 rml:logicalSource :source_004.
 :source_004 a rml:LogicalSource;
-    rml:source "STOPS";
+    rml:source "data/STOPS.csv";
     rml:referenceFormulation ql:CSV.
 :map_stops_000 a rr:TriplesMap;
     rdfs:label "stops".
@@ -485,7 +485,7 @@
 :rules_000 void:exampleResource :map_services1_000.
 :map_services1_000 rml:logicalSource :source_005.
 :source_005 a rml:LogicalSource;
-    rml:source "CALENDAR";
+    rml:source "data/CALENDAR.csv";
     rml:referenceFormulation ql:CSV.
 :map_services1_000 a rr:TriplesMap;
     rdfs:label "services1".
@@ -510,7 +510,7 @@
 :rules_000 void:exampleResource :map_services2_000.
 :map_services2_000 rml:logicalSource :source_006.
 :source_006 a rml:LogicalSource;
-    rml:source "CALENDAR_DATES";
+    rml:source "data/CALENDAR_DATES.csv";
     rml:referenceFormulation ql:CSV.
 :map_services2_000 a rr:TriplesMap;
     rdfs:label "services2".
@@ -535,7 +535,7 @@
 :rules_000 void:exampleResource :map_calendar_date_rules_000.
 :map_calendar_date_rules_000 rml:logicalSource :source_007.
 :source_007 a rml:LogicalSource;
-    rml:source "CALENDAR_DATES";
+    rml:source "data/CALENDAR_DATES.csv";
     rml:referenceFormulation ql:CSV.
 :map_calendar_date_rules_000 a rr:TriplesMap;
     rdfs:label "calendar_date_rules".
@@ -574,7 +574,7 @@
 :rules_000 void:exampleResource :map_calendar_rules_000.
 :map_calendar_rules_000 rml:logicalSource :source_008.
 :source_008 a rml:LogicalSource;
-    rml:source "CALENDAR";
+    rml:source "data/CALENDAR.csv";
     rml:referenceFormulation ql:CSV.
 :map_calendar_rules_000 a rr:TriplesMap;
     rdfs:label "calendar_rules".
@@ -683,7 +683,7 @@
 :rules_000 void:exampleResource :map_feed_000.
 :map_feed_000 rml:logicalSource :source_009.
 :source_009 a rml:LogicalSource;
-    rml:source "FEED_INFO";
+    rml:source "data/FEED_INFO.csv";
     rml:referenceFormulation ql:CSV.
 :map_feed_000 a rr:TriplesMap;
     rdfs:label "feed".
@@ -758,7 +758,7 @@
 :rules_000 void:exampleResource :map_shapes_000.
 :map_shapes_000 rml:logicalSource :source_010.
 :source_010 a rml:LogicalSource;
-    rml:source "SHAPES";
+    rml:source "data/SHAPES.csv";
     rml:referenceFormulation ql:CSV.
 :map_shapes_000 a rr:TriplesMap;
     rdfs:label "shapes".
@@ -786,7 +786,7 @@
 :rules_000 void:exampleResource :map_shapePoints_000.
 :map_shapePoints_000 rml:logicalSource :source_011.
 :source_011 a rml:LogicalSource;
-    rml:source "SHAPES";
+    rml:source "data/SHAPES.csv";
     rml:referenceFormulation ql:CSV.
 :map_shapePoints_000 a rr:TriplesMap;
     rdfs:label "shapePoints".
@@ -843,7 +843,7 @@
 :rules_000 void:exampleResource :map_frequencies_000.
 :map_frequencies_000 rml:logicalSource :source_012.
 :source_012 a rml:LogicalSource;
-    rml:source "FREQUENCIES";
+    rml:source "data/FREQUENCIES.csv";
     rml:referenceFormulation ql:CSV.
 :map_frequencies_000 a rr:TriplesMap;
     rdfs:label "frequencies".

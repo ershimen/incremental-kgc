@@ -10,3 +10,9 @@ pruebas/*
 *snapshot.pkl
 
 *__pycache__
+
+.aux*
+
+.vscode
+
+issues

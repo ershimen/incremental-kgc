@@ -14,12 +14,16 @@ __update_data__ = {
     "agency_phone": "00000000000000000001",
     "agency_fare_url": "https://www.crtm.es/billetes-y-tarifas",
     }
+__aux_data_path__ = '.aux'
+__snapshot_file__ = '.aux/snapshot.pkl'
+__keep_snapshot__ = False
 
 print("Running test %s" % __test__)
 
 import incremental_kg as inc
 import time
 import pandas as pd
+import os
 
 print("Loading new graph...")
 
@@ -28,9 +32,9 @@ print("#" * 60)
 start = time.time()
 # Load new graph
 g = inc.load_kg_aux_to_disk(
-    aux_data_path='.aux',
-    mapping_file='mapping.csv.ttl',
-    snapshot_file='.aux/snapshot.pkl',
+    aux_data_path=__aux_data_path__,
+    mapping_file=__mapping_file__,
+    snapshot_file=__snapshot_file__,
     old_graph=None)
 end = time.time()
 
@@ -50,9 +54,9 @@ print("#" * 60)
 
 start = time.time()
 g = inc.load_kg_aux_to_disk(
-    aux_data_path='.aux',
-    mapping_file='mapping.csv.ttl',
-    snapshot_file='.aux/snapshot.pkl',
+    aux_data_path=__aux_data_path__,
+    mapping_file=__mapping_file__,
+    snapshot_file=__snapshot_file__,
     old_graph=g)
 end = time.time()
 
@@ -65,3 +69,8 @@ print("Restoring %s..." % __update_file__)
 agency_df.to_csv(__update_file__, index=False)
 
 print("Restored %s." % __update_file__)
+
+if not __keep_snapshot__:
+    print("Deleting %s..." % __snapshot_file__)
+    os.remove(__snapshot_file__)
+    print("Deleted snapshot file.")
