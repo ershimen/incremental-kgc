@@ -2,6 +2,10 @@ import pandas as pd
 import rdflib
 import os
 import pickle
+
+import sys
+sys.path.append('../../morph-kgc-ram/src/morph_kgc')
+
 import morph_kgc
 
 def load_kg_aux_to_disk(aux_data_path: str, mapping_file: str, snapshot_file: str, old_graph: rdflib.Graph):
@@ -85,22 +89,29 @@ def load_kg_aux_to_disk(aux_data_path: str, mapping_file: str, snapshot_file: st
                 BIND(CONCAT(".aux/", ?source) AS ?new_source) .
             }
         """
+    print("Updating mappings...")
     mapping_graph.update(query_update)
     
     # Save new mapping
     new_mapping_file = aux_data_path.decode('utf-8') + '/.aux_' + mapping_file
     mapping_graph.serialize(new_mapping_file)
+    print("Updated mappings.")
 
+    print("Materializing graph...")
     config = "[GTFS-Madrid-Bench]\nmappings: %s" % new_mapping_file
     new_graph = morph_kgc.materialize(config)
-
+    print("Materialized graph.")
     # TODO: delete temp data dir?
 
     # return old_graph + new_graph
     if old_graph is None:
         return new_graph
-    print("Concatenaing old and new graphs")
-    return old_graph + new_graph
+    
+    print("Concatenaing old and new graphs...")
+    for triple in new_graph:
+        old_graph.add(triple)
+    print("Concatenated old and new graphs.")
+    return old_graph
 
 
 def load_kg_aux_to_mem(aux_data_path: str, mapping_file: str, snapshot_file: str, old_graph: rdflib.Graph):
@@ -139,7 +150,7 @@ def load_kg_aux_to_mem(aux_data_path: str, mapping_file: str, snapshot_file: str
     # Calculate diff between every new and old file
     for source_file in all_sources:
         # read dataframes
-        df_ds = pd.read_csv('data/' + source_file + '.csv', dtype=str) # source dataframe
+        df_ds = pd.read_csv(source_file)#, dtype=str) # source dataframe
         df_sp = pd.DataFrame() if new_version else sp[source_file] # snapshot dataframe
         
         # find differences (assumes that new data is only in df_datasource)
@@ -173,7 +184,7 @@ def load_kg_aux_to_mem(aux_data_path: str, mapping_file: str, snapshot_file: str
         PREFIX rml: <http://semweb.mmlab.be/ns/rml#>
         PREFIX sd: <https://w3id.org/okn/o/sd/>
         PREFIX ql: <http://semweb.mmlab.be/ns/ql#>
-        PREFIX kg4di: <https://w3id.org/kg4di/definedBy#>
+        PREFIX kg4di: <https://w3id.org/kg4di/definedBy>
             
         DELETE {
             ?source a rml:LogicalSource;
@@ -204,22 +215,31 @@ def load_kg_aux_to_mem(aux_data_path: str, mapping_file: str, snapshot_file: str
                 rml:referenceFormulation ?format.
         }
       """
+    
+    print("Updating mappings...")
     mapping_graph.update(query_update)
     
     # Save new mapping
     new_mapping_file = aux_data_path + '/.aux_' + mapping_file
     mapping_graph.serialize(new_mapping_file)
+    print("Updated mappings.")
 
+    print("Materializing graph...")
     config = "[GTFS-Madrid-Bench]\nmappings: %s" % new_mapping_file
     new_graph = morph_kgc.materialize(config, new_data_dict)
+    print("Materialized graph.")
 
     # TODO: delete temp mapping file?
 
     # return old_graph + new_graph
     if old_graph is None:
         return new_graph
-    print("Concatenaing old and new graphs")
-    return old_graph + new_graph
+
+    print("Concatenaing old and new graphs...")
+    for triple in new_graph:
+        old_graph.add(triple)
+    print("Concatenated old and new graphs.")
+    return old_graph
 
 
 def _old_load_kg(aux_data_path: str, mapping_file: str, snapshot_file: str, old_graph: rdflib.Graph, method: str):
