@@ -2,6 +2,7 @@ pruebas/*
 
 # ignore source data
 *.csv
+*.json
 
 # ignore generated mapping
 *.new*
