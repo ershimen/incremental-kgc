@@ -3,9 +3,6 @@ import rdflib
 import os
 import pickle
 
-import sys
-sys.path.append('../../morph-kgc-ram/src/morph_kgc')
-
 import morph_kgc
 
 def _get_sources_from_mapping(mapping_graph: rdflib.Graph):
@@ -432,6 +429,10 @@ def load_kg(mapping_file: str,
     if method == 'memory':
         # Create auxiliary dictionary for new data
         new_data_dict = {}
+        removed_data_dict = {}
+    
+    has_new_data = False
+    has_removed_data = False
     
     # Process each source
     for source_file in all_sources:
@@ -451,21 +452,33 @@ def load_kg(mapping_file: str,
                             source_file=source_file,
                             extension=extension,
                             data=new_data)
-            msg = "%%s %s, %%s file %s." % (source_file, new_file_path)
+            msg = "\t%%s, %%s file %s." % (new_file_path)
+            #msg_new_data = "%%s, %%s file %s." % (new_file_path)
+            #msg_removed_data = "%%s, %%s file %s." % (new_file_path)
         elif method == 'memory':
             # Save data to in-memory dict
             new_data_dict[source_file] = new_data
-            msg = "%%s %s, %%s dataframe." % (source_file)
+            removed_data_dict[source_file] = removed_data
+            msg = "\t%s, %s dataframe."
+            #msg_new_data = "%%s, %%s dataframe."
+            #msg_removed_data = "%%s, %%s dataframe."
         else:
             raise RuntimeError('\'method\' is not \'disk\' or \'memory\', This should not happend :(')
         
-        # Create print message
+        # Print message and set has_new_data, has_removed_data flags
+        print(source_file)
         if len(new_data) == 0:
-            print(msg % ('No new data in', 'created empty'))
+            print(msg % ('No new data', 'created empty'))
         else:
-            print(msg % ('Found new data in', 'saved to'))
+            print(msg % ('Found new data', 'saved to'))
+            has_new_data = True
         
-
+        if len(removed_data) == 0:
+            print(msg % ('No removed data', 'saved to'))
+        else:
+            print(msg % ('Found removed data', 'saved to'))
+            has_removed_data = True
+        
         # Save current snapshot data = old + new_data - removed_data
         updated_snapshot_data = _calculate_new_snapshot_df(old_data=old_data,
                                                            new_data=new_data,
@@ -532,22 +545,42 @@ def load_kg(mapping_file: str,
     else:
         raise RuntimeError('\'method\' is not \'disk\' or \'memory\', This should not happend :(')
 
-    print("Updating mappings...")
+    print("Updating mappings... ", end='')
     mapping_graph.update(query_update)
 
     # Save new mappings to file
     new_mapping_file = aux_data_path.decode('utf-8') + '/.aux_' + mapping_file
     mapping_graph.serialize(new_mapping_file)
-    print("Updated mappings.")
+    print("OK")
 
     # Materialize new data
     print("Materializing graph...")
     if engine == 'morph':
         config = "[GTFS-Madrid-Bench]\nmappings: %s" % new_mapping_file
         if method == 'disk':
-            new_graph = morph_kgc.materialize(config)
+            if has_new_data:
+                print("Running mapping engine on the new data...")
+                new_triples = morph_kgc.materialize(config)
+            else:
+                print("No new data detected in the data source, no need to run the mapping engine.")
+                new_triples = rdflib.Graph()
+            if has_removed_data:
+                raise NotImplementedError("removed data in 'disk' is not implemented yet!")
         elif method == 'memory':
-            new_graph = morph_kgc.materialize(config, new_data_dict)
+            # Run mapping engine with new data only if there is any
+            if has_new_data:
+                print("Running mapping engine on the new data...")
+                new_triples = morph_kgc.materialize(config, new_data_dict)
+            else:
+                print("No new data detected in the data source, no need to run the mapping engine.")
+                new_triples = rdflib.Graph()
+            # Run mapping engine with removed data only if there is any
+            if has_removed_data:
+                print("Running mapping engine on the removed data...")
+                removed_triples = morph_kgc.materialize(config, removed_data_dict)
+            else:
+                print("No removed data detected in the data source, no need to run the mapping engine.")
+                removed_triples = rdflib.Graph()
         else:
             raise RuntimeError('\'method\' is not \'disk\' or \'memory\', This should not happend :(')
     else:
@@ -558,17 +591,17 @@ def load_kg(mapping_file: str,
 
     # Return the materialized graph if it is a new version
     if old_graph is None:
-        return new_graph
+        return new_triples
 
     # Return the new graph = old graph + new graph - removed graph
-    print("Constructing new graph...")
+    print("Constructing new graph... ", end='')
     # old_plus_new_graph = old_graph + new_graph
-    for new_triple in new_graph:
+    for new_triple in new_triples:
         old_graph.add(new_triple)
     # old_plus_new_minus_rm_graph = old_plus_new_graph - removed_graph
-    #for removed_triple in removed_data:
-    #    old_plus_new_graph.remove(removed_triple)
+    for removed_triple in removed_triples:
+        old_graph.remove(removed_triple)
     # TODO: (optimization) check which of the graphs is larger, and run the for loop in the other (validate) 
-    print("Constructed new graph.")
+    print("OK")
 
     return old_graph
