@@ -1,79 +1,43 @@
-# Import src
-import sys
-sys.path.append('../../src/')
-
 __test__ = "gtfs-bench-1-disk"
 __mapping_file__ = "mapping.csv.ttl"
-__update_data__ = {
-    "data/AGENCY.csv": {
-        "agency_id": "00000000000000100000",
-        "agency_name": "00000000000000000001",
-        "agency_url": "http://www.crtm.es",
-        "agency_timezone": "00000000000000000001",
-        "agency_lang": "00000000000000000001",
-        "agency_phone": "00000000000000000001",
-        "agency_fare_url": "https://www.crtm.es/billetes-y-tarifas",
-        }
-    }
+__update_data__ = [
+    { # First iteration
+        "data/AGENCY.csv": {
+            "agency_id": "00000000000000100000",
+            "agency_name": "00000000000000000001",
+            "agency_url": "http://www.crtm.es",
+            "agency_timezone": "00000000000000000001",
+            "agency_lang": "00000000000000000001",
+            "agency_phone": "00000000000000000001",
+            "agency_fare_url": "https://www.crtm.es/billetes-y-tarifas",
+            },
+        "data/FEED_INFO.csv": {
+            "feed_publisher_name": "0000000000000010000",
+            "feed_publisher_url": "http://www.crtm.es",
+            "feed_lang": "00000000000000000001",
+            "feed_start_date": "1970-01-02",
+            "feed_end_date": "1970-01-02",
+            "feed_version": "00000000000000000001"
+            },
+    },
+    ]
 __aux_data_path__ = '.aux'
 __snapshot_file__ = '.aux/snapshot.pkl'
 __keep_snapshot__ = False
 __method__ = 'disk'
 __engine__ = 'morph'
 
-def __store_data(file: str, data: object, extension: str):
-    """Stores 'data' to 'file' and returns the data in 'file' prior to the change.
 
-    Args:
-        file:
-            A file name.
-        data:
-            A data object (for example json). The types supported are the following:
-                .json: for .csv files
-        extension:
-            Extension of 'file'. This parameter determines how to open 'file' and the return type. 
-        
-    Returns:
-        The data in 'file' prior to the update. The type of the object returned depends 'extension':
-            .csv: returns pandas.DataFrame
-    """
-    if extension == '.csv':
-        df = pd.read_csv(file, dtype=str)
-        df_new = pd.concat([df, pd.DataFrame([data])])
-        df_new.to_csv(file, index=False)
-        return df
-    elif extension == '.json':
-        raise NotImplementedError(f'The file type {extension} is not supported yet!')
-    else:
-        raise NotImplementedError(f'The file type {extension} is not supported yet!')
+import sys
+sys.path.append('../../src/')
+sys.path.append('../../test/')
 
-
-def __restore_data(file: str, data: object, extension: str):
-    """Restores 'data' to 'file'.
-
-    Args:
-        file:
-            A file name.
-        data:
-            A data object (for example json). The types supported are the following:
-                pandas.DataFrame: for .csv files
-        extension:
-            Extension of 'file'. This parameter determines how to store 'data' into 'file'. 
-    """
-    if extension == '.csv':
-        data.to_csv(file, index=False)
-    elif extension == '.json':
-        raise NotImplementedError(f'The file type {extension} is not supported yet!')
-    else:
-        raise NotImplementedError(f'The file type {extension} is not supported yet!')
-
+import incremental_kgc as inc
+import test_utils
+import time
+import os
 
 print("Running test %s" % __test__)
-
-import incremental_kg as inc
-import time
-import pandas as pd
-import os
 
 print("Loading new graph...")
 
@@ -95,12 +59,12 @@ print("Loaded new graph in %.2fs" % (new_version_time))
 print("Adding new data to data source...")
 updated_files = {}
 file_extensions = {}
-for file in __update_data__:
+for file in __update_data__[0]: # First iteration
     _, extension = os.path.splitext(file)
     file_extensions[file] = extension
     print("\tAdding data to %s... " % file, end='')
-    updated_files[file] = __store_data(file=file,
-                                       data=__update_data__[file],
+    updated_files[file] = test_utils.__store_data(file=file,
+                                       data=__update_data__[0][file],
                                        extension=extension)
     print("OK")
 
@@ -125,7 +89,7 @@ print("Loaded new triples in %.2fs" % (end-start))
 print("Restoring data sources...")
 for file in updated_files:
     print("\tRestoring %s... " % file, end='')
-    __restore_data(file, updated_files[file], file_extensions[file])
+    test_utils.__restore_data(file, updated_files[file], file_extensions[file])
     print("OK")
 
 print("Restored data sources.")

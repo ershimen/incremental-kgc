@@ -1,7 +1,7 @@
 __test__ = "gtfs-bench-1-memory"
 __mapping_file__ = "mapping.csv.ttl"
 __update_data__ = [
-    { # First iteration
+    { # First iteration (Adding data)
         "data/AGENCY.csv": {
             "agency_id": "00000000000000100000",
             "agency_name": "00000000000000000001",
@@ -18,6 +18,17 @@ __update_data__ = [
             "feed_start_date": "1970-01-02",
             "feed_end_date": "1970-01-02",
             "feed_version": "00000000000000000001"
+            },
+    },
+    { # Second iteration (Adding data)
+        "data/AGENCY.csv": {
+            "agency_id": "00000000000000200000",
+            "agency_name": "00000000000000000001",
+            "agency_url": "http://www.crtm.es",
+            "agency_timezone": "00000000000000000001",
+            "agency_lang": "00000000000000000001",
+            "agency_phone": "00000000000000000001",
+            "agency_fare_url": "https://www.crtm.es/billetes-y-tarifas",
             },
     },
     ]
@@ -81,8 +92,34 @@ g = inc.load_kg(mapping_file=__mapping_file__,
                 engine=__engine__)
 end = time.time()
 
-update_time = end-start
-update_triples = len(g)
+update_time1 = end-start
+update_triples1 = len(g)
+
+print("Loaded new triples in %.2fs" % (end-start))
+
+print("Adding new data to data source...")
+for file in __update_data__[1]: # First iteration
+    print("\tAdding data to %s... " % file, end='')
+    test_utils.__store_data(file=file,
+                            data=__update_data__[1][file],
+                            extension=extension)
+    print("OK")
+
+print("Finished adding new data to source.")
+
+print("Adding new triples...")
+
+start = time.time()
+g = inc.load_kg(mapping_file=__mapping_file__,
+                snapshot_file=__snapshot_file__,
+                aux_data_path=__aux_data_path__,
+                old_graph=g,
+                method=__method__,
+                engine=__engine__)
+end = time.time()
+
+update_time2 = end-start
+update_triples2 = len(g)
 
 print("Loaded new triples in %.2fs" % (end-start))
 
@@ -101,4 +138,5 @@ if not __keep_snapshot__:
 
 print("Summary:")
 print("\tCreated new version in %.2fs (%d triples)" % (new_version_time, new_version_triples))
-print("\tUpdated in %.2fs (%d triples)" % (update_time, update_triples))
+print("\tUpdated in %.2fs (%d triples)" % (update_time1, update_triples1))
+print("\tUpdated in %.2fs (%d triples)" % (update_time2, update_triples2))
