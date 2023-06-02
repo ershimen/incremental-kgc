@@ -497,7 +497,8 @@ def load_kg(mapping_file: str,
     # Change mappings to support new sources
     if method == 'disk':
         # TODO: change ".aux/" to aux_data_path inside the query
-        query_update = constants.QUERY_DISK
+        query_update = constants.QUERY_DISK % (aux_data_path.decode('utf-8'))
+        ##query_remove = constants.QUERY_DISK % (aux_data_path + '/rm/')
         pass
     elif method == 'memory':
         query_update = constants.QUERY_MEMORY
@@ -517,12 +518,14 @@ def load_kg(mapping_file: str,
     if engine == 'morph':
         config = "[GTFS-Madrid-Bench]\nmappings: %s" % new_mapping_file
         if method == 'disk':
+            # Run mapping engine with new data only if there is any
             if has_new_data:
                 print("Running mapping engine on the new data...")
                 new_triples = morph_kgc.materialize(config)
             else:
                 print("No new data detected in the data source, no need to run the mapping engine.")
                 new_triples = rdflib.Graph()
+            # Run mapping engine with removed data only if there is any
             if has_removed_data:
                 raise NotImplementedError("removed data in 'disk' is not implemented yet!")
         elif method == 'memory':

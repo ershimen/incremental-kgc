@@ -5,7 +5,7 @@ QUERY_DISK = """
     INSERT { ?h rml:source ?new_source }
     WHERE {
         ?h rml:source ?source .
-        BIND(CONCAT(".aux/", ?source) AS ?new_source) .
+        BIND(CONCAT("%s/", ?source) AS ?new_source) .
     }
 """
 
