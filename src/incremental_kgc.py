@@ -5,6 +5,8 @@ import pickle
 
 import morph_kgc
 
+import constants
+
 def _get_sources_from_mapping(mapping_graph: rdflib.Graph):
     """Retrieves a list of sources from the mappings.
 
@@ -495,53 +497,10 @@ def load_kg(mapping_file: str,
     # Change mappings to support new sources
     if method == 'disk':
         # TODO: change ".aux/" to aux_data_path inside the query
-        query_update = """
-            PREFIX rml: <http://semweb.mmlab.be/ns/rml#>
-            
-            DELETE { ?h rml:source ?source }
-            INSERT { ?h rml:source ?new_source }
-            WHERE {
-                ?h rml:source ?source .
-                BIND(CONCAT(".aux/", ?source) AS ?new_source) .
-            }
-        """
+        query_update = constants.QUERY_DISK
         pass
     elif method == 'memory':
-        query_update = """
-            PREFIX rml: <http://semweb.mmlab.be/ns/rml#>
-            PREFIX sd: <https://w3id.org/okn/o/sd/>
-            PREFIX ql: <http://semweb.mmlab.be/ns/ql#>
-            PREFIX kg4di: <https://w3id.org/kg4di/definedBy>
-                
-            DELETE {
-                ?source a rml:LogicalSource;
-                    rml:source ?source_file;
-                    rml:referenceFormulation ?format.
-            }
-            INSERT {
-                #?source rml:source ?source_file. # TODO: remove this
-                ?source a rml:LogicalSource;
-                    rml:source [
-                        a sd:DatasetSpecification;
-                        sd:name ?source_file;
-                        sd:hasDataTransformation [
-                            sd:hasSoftwareRequirements "pandas>=1.5.3";
-                            sd:hasSourceCode [
-                                sd:programmingLanguage "Python3.9";
-                            ];
-                        ];
-                        
-                    ];
-                    rml:referenceFormulation ql:DataFrame.
-                ql:DataFrame a rml:ReferenceFormulation;
-                    kg4di:definedBy "Pandas".
-            }
-            WHERE {
-                ?source a rml:LogicalSource;
-                    rml:source ?source_file;
-                    rml:referenceFormulation ?format.
-            }
-        """
+        query_update = constants.QUERY_MEMORY
     else:
         raise RuntimeError('\'method\' is not \'disk\' or \'memory\', This should not happend :(')
 
