@@ -78,7 +78,7 @@ def _process_source(source_file: str, snapshot: dict, new_version: bool, extensi
         raise NotImplementedError(f'The file type {extension} is not supported yet!')
 
 
-def _save_data_to_file(aux_data_path:str, source_file: str, extension: str, data: object):
+def _save_data_to_file(data_path:str, source_file: str, extension: str, data: object):
     """Saves 'data' to 'aux_data_pah', with 'source_file' name, and returns the new full file name.
 
     Args:
@@ -97,8 +97,9 @@ def _save_data_to_file(aux_data_path:str, source_file: str, extension: str, data
     """
 
     # Create file name
-    new_file_path = aux_data_path.decode('utf-8') + '/' + source_file
+    new_file_path = data_path + '/' + source_file
     # Create directories for aux file
+    # TODO: verify that this does not need to be run with every data source
     os.makedirs(os.path.dirname(new_file_path), exist_ok=True)
     # Save data
     if extension == '.csv':
@@ -140,6 +141,32 @@ def _calculate_new_snapshot_df(old_data: object, new_data: object, removed_data:
     else:
         raise NotImplementedError(f'The file type {extension} is not supported yet!')
     pass
+
+
+def _update_mappings(mapping_graph: rdflib.Graph, query_update: str, data_path: str, mapping_file: str):
+    """Updates the 'mapping_graph' with the query 'query_update' and saves the mapping to 'data_path'/'mapping_file'.
+
+    Args:
+        mapping_graph:
+            A rdflib.Graph that stores the mapping rules.
+        query_update:
+            The query that is going to be executed on the graph.
+        data_path:
+            The path where the new mapping will be stored.
+        mapping_file:
+            The name of the new mapping file.
+
+    Returns:
+        The path of the new mapping file.
+    """
+    mapping_graph.update(query_update)
+    # Save new mappings to file
+    new_mapping_file = data_path + '/.aux_' + mapping_file
+    # Create parent dirs
+    os.makedirs(os.path.dirname(new_mapping_file), exist_ok=True)
+    mapping_graph.serialize(new_mapping_file)
+
+    return new_mapping_file
 
 
 def _load_kg_aux_to_disk(aux_data_path: str,
@@ -418,10 +445,11 @@ def load_kg(mapping_file: str,
         sp = dict()
     
     # Read mapping
-    mapping_graph = rdflib.Graph().parse(mapping_file)
+    mapping_graph_new_data = rdflib.Graph().parse(mapping_file)
+    mapping_graph_removed_data = rdflib.Graph().parse(mapping_file)
 
     # Extract sources from mapping
-    all_sources = _get_sources_from_mapping(mapping_graph)
+    all_sources = _get_sources_from_mapping(mapping_graph_new_data)
 
     # Create auxiliary data directory
     aux_data_path = os.fsencode(aux_data_path) # TODO: quitar '/' si aparece al final
@@ -450,35 +478,38 @@ def load_kg(mapping_file: str,
         # Save new and removed data
         if method == 'disk':
             # Save new data to disk
-            new_file_path = _save_data_to_file(aux_data_path=aux_data_path,
+            new_data_file_path = _save_data_to_file(data_path=aux_data_path.decode('utf-8') + '/new_data',
                             source_file=source_file,
                             extension=extension,
                             data=new_data)
-            msg = "\t%%s, %%s file %s." % (new_file_path)
-            #msg_new_data = "%%s, %%s file %s." % (new_file_path)
-            #msg_removed_data = "%%s, %%s file %s." % (new_file_path)
+            # Save removed data to disk
+            removed_data_file_path = _save_data_to_file(data_path=aux_data_path.decode('utf-8') + '/removed_data',
+                            source_file=source_file,
+                            extension=extension,
+                            data=removed_data)
+            msg_new_data = "\t%%s, %%s file %s." % (new_data_file_path)
+            msg_removed_data = "\t%%s, %%s file %s." % (removed_data_file_path)
         elif method == 'memory':
             # Save data to in-memory dict
             new_data_dict[source_file] = new_data
             removed_data_dict[source_file] = removed_data
-            msg = "\t%s, %s dataframe."
-            #msg_new_data = "%%s, %%s dataframe."
-            #msg_removed_data = "%%s, %%s dataframe."
+            msg_new_data = "\t%s, %s dataframe."
+            msg_removed_data = msg_new_data # The message ends with "saved to dataframe." in both cases
         else:
             raise RuntimeError('\'method\' is not \'disk\' or \'memory\', This should not happend :(')
         
         # Print message and set has_new_data, has_removed_data flags
         print(source_file)
         if len(new_data) == 0:
-            print(msg % ('No new data', 'created empty'))
+            print(msg_new_data % ('No new data', 'created empty'))
         else:
-            print(msg % ('Found new data', 'saved to'))
+            print(msg_new_data % ('Found new data', 'saved to'))
             has_new_data = True
         
         if len(removed_data) == 0:
-            print(msg % ('No removed data', 'saved to'))
+            print(msg_removed_data % ('No removed data', 'saved to'))
         else:
-            print(msg % ('Found removed data', 'saved to'))
+            print(msg_removed_data % ('Found removed data', 'saved to'))
             has_removed_data = True
         
         # Save current snapshot data = old + new_data - removed_data
@@ -494,63 +525,57 @@ def load_kg(mapping_file: str,
         pickle.dump(obj=sp, file=f)
         print("Saved snapshot to", snapshot_file)
     
-    # Change mappings to support new sources
+    # Create queries for the mappings to support new sources
     if method == 'disk':
-        # TODO: change ".aux/" to aux_data_path inside the query
-        query_update = constants.QUERY_DISK % (aux_data_path.decode('utf-8'))
-        ##query_remove = constants.QUERY_DISK % (aux_data_path + '/rm/')
+        query_update_new_data = constants.QUERY_DISK % (aux_data_path.decode('utf-8') + '/new_data')
+        query_update_removed_data = constants.QUERY_DISK % (aux_data_path.decode('utf-8') + '/removed_data')
         pass
     elif method == 'memory':
-        query_update = constants.QUERY_MEMORY
+        query_update_new_data = constants.QUERY_MEMORY
+        query_update_removed_data = query_update_new_data # Same query in 'memory'
     else:
         raise RuntimeError('\'method\' is not \'disk\' or \'memory\', This should not happend :(')
 
-    print("Updating mappings... ", end='')
-    mapping_graph.update(query_update)
-
-    # Save new mappings to file
-    new_mapping_file = aux_data_path.decode('utf-8') + '/.aux_' + mapping_file
-    mapping_graph.serialize(new_mapping_file)
-    print("OK")
-
     # Materialize new data
     print("Materializing graph...")
-    if engine == 'morph':
-        config = "[GTFS-Madrid-Bench]\nmappings: %s" % new_mapping_file
-        if method == 'disk':
-            # Run mapping engine with new data only if there is any
-            if has_new_data:
-                print("Running mapping engine on the new data...")
+    if has_new_data:
+        print("Updating mappings... ", end='')
+        new_mapping_file = _update_mappings(mapping_graph=mapping_graph_new_data,
+                                            query_update=query_update_new_data,
+                                            data_path=aux_data_path.decode('utf-8') + '/new_data',
+                                            mapping_file=mapping_file)
+        print("OK")
+        print("Running mapping engine on the new data...")
+        if engine == 'morph':
+            config = "[GTFS-Madrid-Bench]\nmappings: %s" % new_mapping_file
+            if method == 'disk':
                 new_triples = morph_kgc.materialize(config)
-            else:
-                print("No new data detected in the data source, no need to run the mapping engine.")
-                new_triples = rdflib.Graph()
-            # Run mapping engine with removed data only if there is any
-            if has_removed_data:
-                raise NotImplementedError("removed data in 'disk' is not implemented yet!")
-        elif method == 'memory':
-            # Run mapping engine with new data only if there is any
-            if has_new_data:
-                print("Running mapping engine on the new data...")
+            elif method == 'memory':
                 new_triples = morph_kgc.materialize(config, new_data_dict)
-            else:
-                print("No new data detected in the data source, no need to run the mapping engine.")
-                new_triples = rdflib.Graph()
-            # Run mapping engine with removed data only if there is any
-            if has_removed_data:
-                print("Running mapping engine on the removed data...")
-                removed_triples = morph_kgc.materialize(config, removed_data_dict)
-            else:
-                print("No removed data detected in the data source, no need to run the mapping engine.")
-                removed_triples = rdflib.Graph()
         else:
-            raise RuntimeError('\'method\' is not \'disk\' or \'memory\', This should not happend :(')
+            raise RuntimeError('\'engine\' is not \'morph\', This should not happend :(')
     else:
-        raise RuntimeError('\'engine\' is not \'morph\', This should not happend :(')
-    print("Materialized graph.")
-
-    # TODO: calculate removed_graph
-
+        print("No new data detected in the data source, no need to run the mapping engine.")
+        new_triples = rdflib.Graph()
+    
+    # Materialize removed data
+    if has_removed_data:
+        print("Updating mappings... ", end='')
+        new_mapping_file = _update_mappings(mapping_graph=mapping_graph_removed_data,
+                                            query_update=query_update_removed_data,
+                                            data_path=aux_data_path.decode('utf-8') + '/removed_data',
+                                            mapping_file=mapping_file)
+        print("OK")
+        if engine == 'morph':
+            config = "[GTFS-Madrid-Bench]\nmappings: %s" % new_mapping_file
+            if method == 'disk':
+                removed_triples = morph_kgc.materialize(config)
+            elif method == 'memory':
+                removed_triples = morph_kgc.materialize(config, removed_data_dict)
+    else:
+        print("No removed data detected in the data source, no need to run the mapping engine.")
+        removed_triples = rdflib.Graph()
+    
     # Return the materialized graph if it is a new version
     if old_graph is None:
         return new_triples
