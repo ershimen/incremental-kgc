@@ -2,6 +2,7 @@ import pandas as pd
 import rdflib
 import os
 import pickle
+import time
 
 import morph_kgc
 
@@ -464,6 +465,7 @@ def load_kg(mapping_file: str,
     has_new_data = False
     has_removed_data = False
     
+    start = time.time()
     # Process each source
     for source_file in all_sources:
         # Get extension from source file
@@ -518,6 +520,10 @@ def load_kg(mapping_file: str,
                                                            removed_data=removed_data,
                                                            extension=extension)
         sp[source_file] = updated_snapshot_data
+
+    end = time.time()
+
+    print("Finished calculating diff in %.2fs." % (end-start))
 
     # Save snapshot
     # TODO: Create parent dir if it does not exist
