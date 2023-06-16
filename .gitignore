@@ -1,4 +1,4 @@
-pruebas/*
+pruebas
 
 # ignore source data
 *.csv
@@ -19,3 +19,5 @@ pruebas/*
 issues
 
 test-notebooks
+
+*.log
