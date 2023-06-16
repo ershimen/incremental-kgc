@@ -1,9 +1,9 @@
-__test__ = "gtfs-bench-csv-1-morph-disk"
+__test__ = "gtfs-bench-csv-1-morph-memory"
 __mapping_file__ = "mapping.csv.ttl"
 __aux_data_path__ = '.aux'
 __snapshot_file__ = '.aux/snapshot.pkl'
 __keep_snapshot__ = False
-__method__ = 'disk'
+__method__ = 'memory'
 __engine__ = 'morph'
 __update_data__ = [
     { # First iteration (Adding data)
