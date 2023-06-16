@@ -6,7 +6,7 @@ __keep_snapshot__ = False
 __method__ = 'disk'
 __engine__ = 'morph'
 __update_data__ = [
-    { # First iteration
+    { # First iteration (Adding data)
         "add": {
             "data/AGENCY.csv": {
                 "agency_id": "00000000000000100000",
@@ -27,7 +27,18 @@ __update_data__ = [
                 },
         },
     },
-    { # Second iteration
+    { # Second iteration (Updating data)
+        "add": {
+            "data/AGENCY.csv": {
+                "agency_id": "00000000000000200000",
+                "agency_name": "00000000000000000001",
+                "agency_url": "http://www.crtm.es",
+                "agency_timezone": "00000000000000000001",
+                "agency_lang": "00000000000000000001",
+                "agency_phone": "00000000000000000001",
+                "agency_fare_url": "https://www.crtm.es/billetes-y-tarifas",
+                },
+        },
         "remove": {
             "data/AGENCY.csv": {
                 "agency_id": "00000000000000100000",

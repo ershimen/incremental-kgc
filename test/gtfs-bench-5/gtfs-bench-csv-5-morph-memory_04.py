@@ -1,12 +1,12 @@
-__test__ = "gtfs-bench-csv-5-morph-disk"
+__test__ = "gtfs-bench-csv-5-morph-memory"
 __mapping_file__ = "mapping.csv.ttl"
 __aux_data_path__ = '.aux'
 __snapshot_file__ = '.aux/snapshot.pkl'
 __keep_snapshot__ = False
-__method__ = 'disk'
+__method__ = 'memory'
 __engine__ = 'morph'
 __update_data__ = [
-    { # First iteration
+    { # First iteration (Adding data)
         "add": {
             "data/AGENCY.csv": {
                 "agency_id": "00000000000000100000",
@@ -27,7 +27,18 @@ __update_data__ = [
                 },
         },
     },
-    { # Second iteration
+    { # Second iteration (Updating data)
+        "add": {
+            "data/AGENCY.csv": {
+                "agency_id": "00000000000000200000",
+                "agency_name": "00000000000000000001",
+                "agency_url": "http://www.crtm.es",
+                "agency_timezone": "00000000000000000001",
+                "agency_lang": "00000000000000000001",
+                "agency_phone": "00000000000000000001",
+                "agency_fare_url": "https://www.crtm.es/billetes-y-tarifas",
+                },
+        },
         "remove": {
             "data/AGENCY.csv": {
                 "agency_id": "00000000000000100000",
