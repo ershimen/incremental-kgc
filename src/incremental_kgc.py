@@ -5,6 +5,7 @@ import pickle
 import time
 
 import morph_kgc
+from rdfizer import semantify
 
 import constants
 
@@ -209,8 +210,10 @@ def load_kg(mapping_file: str,
     # Argument checks
     if method not in ['disk', 'memory']:
         raise ValueError("'method' argument must be either 'disk' or 'memory'")
-    if engine not in ['morph']:
-        raise ValueError("'engine' argument must be 'morph'")
+    if engine not in ['morph', 'rdfizer']:
+        raise ValueError("'engine' argument must be 'morph' or 'rdfizer'")
+    if engine == 'rdfizer' and method != 'disk':
+        raise ValueError("'rdfizer' engine only supports 'disk' method")
     
     # load snapshot
     if os.path.exists(snapshot_file):
@@ -231,9 +234,9 @@ def load_kg(mapping_file: str,
     all_sources = _get_sources_from_mapping(mapping_graph_new_data)
 
     # Create auxiliary data directory
-    aux_data_path = os.fsencode(aux_data_path) # TODO: quitar '/' si aparece al final
-    if not os.path.exists(aux_data_path):
-        os.makedirs(aux_data_path)
+    aux_data_path_enc = os.fsencode(aux_data_path) # TODO: quitar '/' si aparece al final
+    if not os.path.exists(aux_data_path_enc):
+        os.makedirs(aux_data_path_enc)
     
     if method == 'memory':
         # Create auxiliary dictionary for new data
@@ -258,12 +261,12 @@ def load_kg(mapping_file: str,
         # Save new and removed data
         if method == 'disk':
             # Save new data to disk
-            new_data_file_path = _save_data_to_file(data_path=aux_data_path.decode('utf-8') + '/new_data',
+            new_data_file_path = _save_data_to_file(data_path=aux_data_path + '/new_data',
                             source_file=source_file,
                             extension=extension,
                             data=new_data)
             # Save removed data to disk
-            removed_data_file_path = _save_data_to_file(data_path=aux_data_path.decode('utf-8') + '/removed_data',
+            removed_data_file_path = _save_data_to_file(data_path=aux_data_path + '/removed_data',
                             source_file=source_file,
                             extension=extension,
                             data=removed_data)
@@ -311,8 +314,8 @@ def load_kg(mapping_file: str,
     
     # Create queries for the mappings to support new sources
     if method == 'disk':
-        query_update_new_data = constants.QUERY_DISK % (aux_data_path.decode('utf-8') + '/new_data')
-        query_update_removed_data = constants.QUERY_DISK % (aux_data_path.decode('utf-8') + '/removed_data')
+        query_update_new_data = constants.QUERY_DISK % (aux_data_path + '/new_data')
+        query_update_removed_data = constants.QUERY_DISK % (aux_data_path + '/removed_data')
         pass
     elif method == 'memory':
         query_update_new_data = constants.QUERY_MEMORY
@@ -326,7 +329,7 @@ def load_kg(mapping_file: str,
         print("Updating mappings... ", end='')
         new_mapping_file = _update_mappings(mapping_graph=mapping_graph_new_data,
                                             query_update=query_update_new_data,
-                                            data_path=aux_data_path.decode('utf-8') + '/new_data',
+                                            data_path=aux_data_path + '/new_data',
                                             mapping_file=mapping_file)
         print("OK")
         print("Running mapping engine on the new data...")
@@ -336,6 +339,32 @@ def load_kg(mapping_file: str,
                 new_triples = morph_kgc.materialize(config)
             elif method == 'memory':
                 new_triples = morph_kgc.materialize(config, new_data_dict)
+        elif engine == 'rdfizer':
+            config =  """
+            [default]
+            main_directory: %s/new_data/data
+
+            [datasets]
+            number_of_datasets: 1
+            output_folder: %s/new_data
+            all_in_one_file: no
+            remove_duplicate: yes
+            enrichment: yes
+            name: output
+            ordered: yes
+
+            [dataset1]
+            name: new_data
+            mapping: %s/new_data/%s
+            """
+            
+            with open(aux_data_path + '/new_data/rdfizer_config.ini', "w") as f:
+                f.write(config % (aux_data_path, aux_data_path, aux_data_path, '.aux_' + mapping_file))
+
+            semantify(config_path=aux_data_path + '/new_data/rdfizer_config.ini')
+
+            # Read the output of semantify()
+            new_triples = rdflib.Graph().parse(aux_data_path + '/new_data/new_data.nt')
         else:
             raise RuntimeError('\'engine\' is not \'morph\', This should not happend :(')
     else:
@@ -347,7 +376,7 @@ def load_kg(mapping_file: str,
         print("Updating mappings... ", end='')
         new_mapping_file = _update_mappings(mapping_graph=mapping_graph_removed_data,
                                             query_update=query_update_removed_data,
-                                            data_path=aux_data_path.decode('utf-8') + '/removed_data',
+                                            data_path=aux_data_path + '/removed_data',
                                             mapping_file=mapping_file)
         print("OK")
         if engine == 'morph':
@@ -356,6 +385,32 @@ def load_kg(mapping_file: str,
                 removed_triples = morph_kgc.materialize(config)
             elif method == 'memory':
                 removed_triples = morph_kgc.materialize(config, removed_data_dict)
+        elif engine == 'rdfizer':
+            config =  """
+            [default]
+            main_directory: %s/removed_data/data
+
+            [datasets]
+            number_of_datasets: 1
+            output_folder: %s/removed_data
+            all_in_one_file: no
+            remove_duplicate: yes
+            enrichment: yes
+            name: output
+            ordered: yes
+
+            [dataset1]
+            name: removed_data
+            mapping: %s/removed_data/%s
+            """
+            
+            with open(aux_data_path + '/removed_data/rdfizer_config.ini', "w") as f:
+                f.write(config % (aux_data_path, aux_data_path, aux_data_path, '.aux_' + mapping_file))
+
+            semantify(config_path=aux_data_path + '/removed_data/rdfizer_config.ini')
+            
+            # Read the output of semantify()
+            removed_triples = rdflib.Graph().parse(aux_data_path + '/removed_data/removed_data.nt')
     else:
         print("No removed data detected in the data source, no need to run the mapping engine.")
         removed_triples = rdflib.Graph()
