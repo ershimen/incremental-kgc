@@ -245,7 +245,10 @@ def load_kg(mapping_file: str,
     
     has_new_data = False
     has_removed_data = False
-    
+
+    updated_new_sources = set()
+    updated_removed_sources = set()
+
     start = time.time()
     # Process each source
     for source_file in all_sources:
@@ -260,40 +263,54 @@ def load_kg(mapping_file: str,
         
         # Save new and removed data
         if method == 'disk':
-            # Save new data to disk
-            new_data_file_path = _save_data_to_file(data_path=aux_data_path + '/new_data',
-                            source_file=source_file,
-                            extension=extension,
-                            data=new_data)
-            # Save removed data to disk
-            removed_data_file_path = _save_data_to_file(data_path=aux_data_path + '/removed_data',
-                            source_file=source_file,
-                            extension=extension,
-                            data=removed_data)
-            msg_new_data = "\t%%s, %%s file %s." % (new_data_file_path)
-            msg_removed_data = "\t%%s, %%s file %s." % (removed_data_file_path)
+            # Save new data to disk if there is any
+            if len(new_data) > 0:
+                new_data_file_path = _save_data_to_file(data_path=aux_data_path + '/new_data',
+                                source_file=source_file,
+                                extension=extension,
+                                data=new_data)
+                msg_new_data = "\tFound new data, saved to %s." % new_data_file_path
+                has_new_data = True
+                updated_new_sources.add(source_file)
+            else:
+                msg_new_data = "\tNo new data."
+            
+            # Save removed data to disk if there is any
+            if len(removed_data) > 0:
+                removed_data_file_path = _save_data_to_file(data_path=aux_data_path + '/removed_data',
+                                source_file=source_file,
+                                extension=extension,
+                                data=removed_data)
+                msg_removed_data = "\tFound removed data, saved to %s." % removed_data_file_path
+                has_removed_data = True
+                updated_removed_sources.add(source_file)
+            else:
+                msg_removed_data = "\tNo removed data."
         elif method == 'memory':
-            # Save data to in-memory dict
-            new_data_dict[source_file] = new_data
-            removed_data_dict[source_file] = removed_data
-            msg_new_data = "\t%s, %s dataframe."
-            msg_removed_data = msg_new_data # The message ends with "saved to dataframe." in both cases
+            # Save new data to in-memory dict if there is any
+            if len(new_data) > 0:
+                new_data_dict[source_file] = new_data
+                msg_new_data = "\tFound new data, saved to dataframe."
+                has_new_data = True
+                updated_new_sources.add(source_file)
+            else:
+                msg_new_data = "\tNo new data."
+            
+            # Save removed data to in-memory dict if there is any
+            if len(removed_data) > 0:
+                removed_data_dict[source_file] = removed_data
+                msg_removed_data = "\tFound removed data, saved to dataframe."
+                has_removed_data = True
+                updated_removed_sources.add(source_file)
+            else:
+                msg_removed_data = "\tNo new data."
         else:
             raise RuntimeError('\'method\' is not \'disk\' or \'memory\', This should not happend :(')
         
-        # Print message and set has_new_data, has_removed_data flags
+        # Print messages
         print(source_file)
-        if len(new_data) == 0:
-            print(msg_new_data % ('No new data', 'created empty'))
-        else:
-            print(msg_new_data % ('Found new data', 'saved to'))
-            has_new_data = True
-        
-        if len(removed_data) == 0:
-            print(msg_removed_data % ('No removed data', 'saved to'))
-        else:
-            print(msg_removed_data % ('Found removed data', 'saved to'))
-            has_removed_data = True
+        print(msg_new_data)
+        print(msg_removed_data)
         
         # Save current snapshot data = old + new_data - removed_data
         updated_snapshot_data = _calculate_new_snapshot_df(old_data=old_data,
@@ -311,6 +328,25 @@ def load_kg(mapping_file: str,
     with open(snapshot_file, 'wb') as f:
         pickle.dump(obj=sp, file=f)
         print("Saved snapshot to", snapshot_file)
+    
+    # Calculate the mappings of the changed files
+    if len(updated_new_sources) > 0:
+        # Retrieve mappings related to the sources with new data
+        query_update_sources = constants.QUERY_SOURCES % (tuple([", ".join(["\"%s\"" % e for e in updated_new_sources])] * 7))
+        query_res = mapping_graph_new_data.query(query_update_sources)
+        new_g = rdflib.Graph()
+        for i in query_res:
+            new_g.add(i)
+        mapping_graph_new_data = new_g
+
+    if len(updated_removed_sources) > 0:
+        # Retrieve mappings related to the sources with removed data
+        query_update_sources = constants.QUERY_SOURCES % (tuple([", ".join(["\"%s\"" % e for e in updated_removed_sources])] * 7))
+        query_res = mapping_graph_removed_data.query(query_update_sources)
+        new_g = rdflib.Graph()
+        for i in query_res:
+            new_g.add(i)
+        mapping_graph_removed_data = new_g
     
     # Create queries for the mappings to support new sources
     if method == 'disk':

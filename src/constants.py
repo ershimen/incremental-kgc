@@ -21,7 +21,6 @@ QUERY_MEMORY = """
             rml:referenceFormulation ?format.
     }
     INSERT {
-        #?source rml:source ?source_file. # TODO: remove this
         ?source a rml:LogicalSource;
             rml:source [
                 a sd:DatasetSpecification;
@@ -42,5 +41,77 @@ QUERY_MEMORY = """
         ?source a rml:LogicalSource;
             rml:source ?source_file;
             rml:referenceFormulation ?format.
+    }
+"""
+
+QUERY_SOURCES = """
+    PREFIX rml: <http://semweb.mmlab.be/ns/rml#>
+    PREFIX rr: <http://www.w3.org/ns/r2rml#>
+    
+    SELECT ?s ?p ?o
+    WHERE {
+        {
+            # rml:source
+            ?s rml:source ?s_filter  .
+            FILTER (?s_filter IN (%s)) .
+            ?s ?p ?o .
+        }
+        UNION
+        {
+            # rml:logicalSource
+            ?source rml:source ?s_filter .
+            FILTER (?s_filter IN (%s)) .
+            ?s rml:logicalSource ?source .
+            ?s ?p ?o
+        }
+        UNION
+        {
+            # rr:predicateObjectMap
+            ?source rml:source ?s_filter  .
+            FILTER (?s_filter IN (%s)) .
+            ?ls rml:logicalSource ?source .
+            ?ls rr:predicateObjectMap ?s .
+            ?s ?p ?o .
+        }
+        UNION
+        {
+            # rr:objectMap
+            ?source rml:source ?s_filter  .
+            FILTER (?s_filter IN (%s)) .
+            ?ls rml:logicalSource ?source .
+            ?ls rr:predicateObjectMap ?pom .
+            ?pom rr:objectMap ?s .
+            ?s ?p ?o .
+        }
+        UNION
+        {
+            # rr:predicateMap
+            ?source rml:source ?s_filter  .
+            FILTER (?s_filter IN (%s)) .
+            ?ls rml:logicalSource ?source .
+            ?ls rr:predicateObjectMap ?pom .
+            ?pom rr:predicateMap ?s .
+            ?s ?p ?o .
+        }
+        UNION
+        {
+            # rr:subjectMap
+            ?source rml:source ?s_filter  .
+            FILTER (?s_filter IN (%s)) .
+            ?ls rml:logicalSource ?source .
+            ?ls rr:subjectMap ?s .
+            ?s ?p ?o .
+        }
+        UNION
+        {
+            # rr:joinCondition
+            ?source rml:source ?s_filter  .
+            FILTER (?s_filter IN (%s)) .
+            ?ls rml:logicalSource ?source .
+            ?ls rr:predicateObjectMap ?pom .
+            ?pom rr:objectMap ?om .
+            ?om rr:joinCondition ?s .
+            ?s ?p ?o .
+        }
     }
 """
