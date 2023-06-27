@@ -176,7 +176,8 @@ def load_kg(mapping_file: str,
             aux_data_path: str = '.aux',
             old_graph: rdflib.Graph = None,
             method: str = 'memory',
-            engine: str = 'morph'):
+            engine: str = 'morph',
+            mapping_optimization: bool = True):
     """Materializes a knowledge graph given a data source and a mapping file. It also supports
     updating versions of previously generated graphs when 'snapshot_file' and 'old_graph' are provided.
 
@@ -197,6 +198,8 @@ def load_kg(mapping_file: str,
         engine:
             The name of the mapping engine to materialize the graph:
                 - 'morph': https://github.com/morph-kgc/morph-kgc.
+        mapping_optimization:
+            If true, the mappings are reduced to contain the rules from the datasources that are updated.
 
     Returns:
         A new materialized graph when 'old_graph' is None, or a new version of 'old_graph'. The directory
@@ -273,8 +276,15 @@ def load_kg(mapping_file: str,
                 has_new_data = True
                 updated_new_sources.add(source_file)
             else:
-                msg_new_data = "\tNo new data."
-            
+                if not mapping_optimization:
+                    new_data_file_path = _save_data_to_file(data_path=aux_data_path + '/new_data',
+                                    source_file=source_file,
+                                    extension=extension,
+                                    data=new_data)
+                    msg_new_data = "\tNo new data, saved to %s." % new_data_file_path
+                else:
+                    msg_new_data = "\tNo new data."
+
             # Save removed data to disk if there is any
             if len(removed_data) > 0:
                 removed_data_file_path = _save_data_to_file(data_path=aux_data_path + '/removed_data',
@@ -285,7 +295,15 @@ def load_kg(mapping_file: str,
                 has_removed_data = True
                 updated_removed_sources.add(source_file)
             else:
-                msg_removed_data = "\tNo removed data."
+                if not mapping_optimization:
+                    removed_data_file_path = _save_data_to_file(data_path=aux_data_path + '/removed_data',
+                                source_file=source_file,
+                                extension=extension,
+                                data=removed_data)
+                    msg_removed_data = "\tNo removed data, saved to %s." % removed_data_file_path
+                else:
+                    msg_removed_data = "\tNo removed data."
+
         elif method == 'memory':
             # Save new data to in-memory dict if there is any
             if len(new_data) > 0:
@@ -294,7 +312,11 @@ def load_kg(mapping_file: str,
                 has_new_data = True
                 updated_new_sources.add(source_file)
             else:
-                msg_new_data = "\tNo new data."
+                if not mapping_optimization:
+                    new_data_dict[source_file] = new_data
+                    msg_new_data = "\tNo new data, saved to dataframe."
+                else:
+                    msg_new_data = "\tNo new data."
             
             # Save removed data to in-memory dict if there is any
             if len(removed_data) > 0:
@@ -303,7 +325,11 @@ def load_kg(mapping_file: str,
                 has_removed_data = True
                 updated_removed_sources.add(source_file)
             else:
-                msg_removed_data = "\tNo new data."
+                if not mapping_optimization:
+                    removed_data_dict[source_file] = removed_data
+                    msg_removed_data = "\tNo removed data, saved to dataframe."
+                else:
+                    msg_removed_data = "\tNo removed data."
         else:
             raise RuntimeError('\'method\' is not \'disk\' or \'memory\', This should not happend :(')
         
@@ -329,24 +355,25 @@ def load_kg(mapping_file: str,
         pickle.dump(obj=sp, file=f)
         print("Saved snapshot to", snapshot_file)
     
-    # Calculate the mappings of the changed files
-    if len(updated_new_sources) > 0:
-        # Retrieve mappings related to the sources with new data
-        query_update_sources = constants.QUERY_SOURCES % (tuple([", ".join(["\"%s\"" % e for e in updated_new_sources])] * 7))
-        query_res = mapping_graph_new_data.query(query_update_sources)
-        new_g = rdflib.Graph()
-        for i in query_res:
-            new_g.add(i)
-        mapping_graph_new_data = new_g
+    if mapping_optimization:
+        # Calculate the mappings of the changed files
+        if len(updated_new_sources) > 0:
+            # Retrieve mappings related to the sources with new data
+            query_update_sources = constants.QUERY_SOURCES % (tuple([", ".join(["\"%s\"" % e for e in updated_new_sources])] * 7))
+            query_res = mapping_graph_new_data.query(query_update_sources)
+            new_g = rdflib.Graph()
+            for i in query_res:
+                new_g.add(i)
+            mapping_graph_new_data = new_g
 
-    if len(updated_removed_sources) > 0:
-        # Retrieve mappings related to the sources with removed data
-        query_update_sources = constants.QUERY_SOURCES % (tuple([", ".join(["\"%s\"" % e for e in updated_removed_sources])] * 7))
-        query_res = mapping_graph_removed_data.query(query_update_sources)
-        new_g = rdflib.Graph()
-        for i in query_res:
-            new_g.add(i)
-        mapping_graph_removed_data = new_g
+        if len(updated_removed_sources) > 0:
+            # Retrieve mappings related to the sources with removed data
+            query_update_sources = constants.QUERY_SOURCES % (tuple([", ".join(["\"%s\"" % e for e in updated_removed_sources])] * 7))
+            query_res = mapping_graph_removed_data.query(query_update_sources)
+            new_g = rdflib.Graph()
+            for i in query_res:
+                new_g.add(i)
+            mapping_graph_removed_data = new_g
     
     # Create queries for the mappings to support new sources
     if method == 'disk':
