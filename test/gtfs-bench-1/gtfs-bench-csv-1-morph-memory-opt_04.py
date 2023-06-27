@@ -3,9 +3,9 @@ __mapping_file__ = "mapping.csv.ttl"
 __aux_data_path__ = '.aux'
 __snapshot_file__ = '.aux/snapshot.pkl'
 __keep_snapshot__ = False
-__method__ = 'disk'
+__method__ = 'memory'
 __engine__ = 'morph'
-__mapping_optimization__ = False
+__mapping_optimization__ = True
 __update_data__ = [
     { # First iteration (Adding data)
         "add": {

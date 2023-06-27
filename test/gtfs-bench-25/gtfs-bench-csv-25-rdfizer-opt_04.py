@@ -1,11 +1,11 @@
-__test__ = "gtfs-bench-csv-1-morph-disk"
+__test__ = "gtfs-bench-csv-25-rdfizer"
 __mapping_file__ = "mapping.csv.ttl"
 __aux_data_path__ = '.aux'
 __snapshot_file__ = '.aux/snapshot.pkl'
 __keep_snapshot__ = False
 __method__ = 'disk'
-__engine__ = 'morph'
-__mapping_optimization__ = False
+__engine__ = 'rdfizer'
+__mapping_optimization__ = True
 __update_data__ = [
     { # First iteration (Adding data)
         "add": {

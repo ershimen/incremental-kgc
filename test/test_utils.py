@@ -88,6 +88,7 @@ def run_test(update_data: list,
              aux_data_path: str,
              method: str,
              engine: str,
+             mapping_optimization: bool,
              keep_snapshot: bool):
     """Performs a first version materialization, and then one update for each value in update_data.
 
@@ -133,6 +134,8 @@ def run_test(update_data: list,
         engine:
             The name of the mapping engine to materialize the graph:
                 - 'morph': https://github.com/morph-kgc/morph-kgc.
+        mapping_optimization:
+            If true, the mappings are reduced to contain the rules from the datasources that are updated.
         keep_snapshot:
             A boolean value that indicates if the snapshot file should be kept after performing the test.
         
@@ -152,7 +155,8 @@ def run_test(update_data: list,
                     aux_data_path=aux_data_path,
                     old_graph=None,
                     method=method,
-                    engine=engine)
+                    engine=engine,
+                    mapping_optimization=mapping_optimization)
     end = time.time()
     total_time = end-start
     results.append((len(g), total_time))
@@ -203,7 +207,8 @@ def run_test(update_data: list,
                         aux_data_path=aux_data_path,
                         old_graph=g,
                         method=method,
-                        engine=engine)
+                        engine=engine,
+                        mapping_optimization=mapping_optimization)
         end = time.time()
         total_time = end-start
         results.append((len(g), total_time))

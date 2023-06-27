@@ -5,6 +5,7 @@ __snapshot_file__ = '.aux/snapshot.pkl'
 __keep_snapshot__ = False
 __method__ = 'disk'
 __engine__ = 'morph'
+__mapping_optimization__ = False
 __update_data__ = [
     { # First iteration (Adding data)
         "add": {
@@ -67,6 +68,7 @@ res = test_utils.run_test(update_data=__update_data__,
                           aux_data_path=__aux_data_path__,
                           method=__method__,
                           engine=__engine__,
+                          mapping_optimization=__mapping_optimization__,
                           keep_snapshot=__keep_snapshot__)
 end = time.time()
 print("\n------------------------------------------------------")
