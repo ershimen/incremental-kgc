@@ -5,7 +5,7 @@ __snapshot_file__ = '.aux/snapshot.pkl'
 __keep_snapshot__ = False
 __method__ = 'memory'
 __engine__ = 'morph'
-__mapping_optimization__ = False
+__mapping_optimization__ = True
 __update_data__ = [
     { # First iteration (Adding data)
         "add": {
