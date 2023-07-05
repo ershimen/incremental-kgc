@@ -1,0 +1,405 @@
+######################### 1 #########################
+Running test gtfs-bench-csv-rdfizer-no-inc
+Loading new graph...
+Semantifying data...
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_trips_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_frequencies_000
+Successfully semantified data.
+
+
+Successfully semantified all datasets in 276.238 seconds.
+Loaded new graph in 627.73s
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Adding data to data/FEED_INFO.csv... OK
+Finished updating data source.
+Updating graph...
+Semantifying data...
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_trips_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_frequencies_000
+Successfully semantified data.
+
+
+Successfully semantified all datasets in 210.622 seconds.
+Finished updating graph in 591.78s.
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Removing data from data/AGENCY.csv... OK
+Finished updating data source.
+Updating graph...
+Semantifying data...
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_trips_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_frequencies_000
+Successfully semantified data.
+
+
+Successfully semantified all datasets in 209.309 seconds.
+Finished updating graph in 591.74s.
+Restoring data sources...
+	Restoring data/AGENCY.csv... OK
+	Restoring data/FEED_INFO.csv... OK
+Restored data sources.
+
+------------------------------------------------------
+Finished running test in 1811.27s.
+Summary:
+	Created new version in 627.73s (9898825 triples)
+	Updated in 591.78s (9898839 triples)
+	Updated in 591.74s (9898839 triples)
+######################### 2 #########################
+Running test gtfs-bench-csv-rdfizer-no-inc
+Loading new graph...
+Semantifying data...
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_trips_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_frequencies_000
+Successfully semantified data.
+
+
+Successfully semantified all datasets in 278.289 seconds.
+Loaded new graph in 631.30s
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Adding data to data/FEED_INFO.csv... OK
+Finished updating data source.
+Updating graph...
+Semantifying data...
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_trips_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_frequencies_000
+Successfully semantified data.
+
+
+Successfully semantified all datasets in 212.446 seconds.
+Finished updating graph in 593.83s.
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Removing data from data/AGENCY.csv... OK
+Finished updating data source.
+Updating graph...
+Semantifying data...
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_trips_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_frequencies_000
+Successfully semantified data.
+
+
+Successfully semantified all datasets in 211.026 seconds.
+Finished updating graph in 594.33s.
+Restoring data sources...
+	Restoring data/AGENCY.csv... OK
+	Restoring data/FEED_INFO.csv... OK
+Restored data sources.
+
+------------------------------------------------------
+Finished running test in 1819.49s.
+Summary:
+	Created new version in 631.30s (9898825 triples)
+	Updated in 593.83s (9898839 triples)
+	Updated in 594.33s (9898839 triples)
+######################### 3 #########################
+Running test gtfs-bench-csv-rdfizer-no-inc
+Loading new graph...
+Semantifying data...
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_trips_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_frequencies_000
+Successfully semantified data.
+
+
+Successfully semantified all datasets in 277.621 seconds.
+Loaded new graph in 627.85s
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Adding data to data/FEED_INFO.csv... OK
+Finished updating data source.
+Updating graph...
+Semantifying data...
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_trips_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_frequencies_000
+Successfully semantified data.
+
+
+Successfully semantified all datasets in 208.894 seconds.
+Finished updating graph in 587.06s.
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Removing data from data/AGENCY.csv... OK
+Finished updating data source.
+Updating graph...
+Semantifying data...
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_trips_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_frequencies_000
+Successfully semantified data.
+
+
+Successfully semantified all datasets in 208.480 seconds.
+Finished updating graph in 587.12s.
+Restoring data sources...
+	Restoring data/AGENCY.csv... OK
+	Restoring data/FEED_INFO.csv... OK
+Restored data sources.
+
+------------------------------------------------------
+Finished running test in 1802.05s.
+Summary:
+	Created new version in 627.85s (9898825 triples)
+	Updated in 587.06s (9898839 triples)
+	Updated in 587.12s (9898839 triples)
+######################### 4 #########################
+Running test gtfs-bench-csv-rdfizer-no-inc
+Loading new graph...
+Semantifying data...
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_trips_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_frequencies_000
+Successfully semantified data.
+
+
+Successfully semantified all datasets in 276.713 seconds.
+Loaded new graph in 627.06s
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Adding data to data/FEED_INFO.csv... OK
+Finished updating data source.
+Updating graph...
+Semantifying data...
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_trips_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_frequencies_000
+Successfully semantified data.
+
+
+Successfully semantified all datasets in 208.959 seconds.
+Finished updating graph in 589.08s.
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Removing data from data/AGENCY.csv... OK
+Finished updating data source.
+Updating graph...
+Semantifying data...
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_trips_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_frequencies_000
+Successfully semantified data.
+
+
+Successfully semantified all datasets in 207.110 seconds.
+Finished updating graph in 588.71s.
+Restoring data sources...
+	Restoring data/AGENCY.csv... OK
+	Restoring data/FEED_INFO.csv... OK
+Restored data sources.
+
+------------------------------------------------------
+Finished running test in 1804.86s.
+Summary:
+	Created new version in 627.06s (9898825 triples)
+	Updated in 589.08s (9898839 triples)
+	Updated in 588.71s (9898839 triples)
+######################### 5 #########################
+Running test gtfs-bench-csv-rdfizer-no-inc
+Loading new graph...
+Semantifying data...
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_trips_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_frequencies_000
+Successfully semantified data.
+
+
+Successfully semantified all datasets in 275.773 seconds.
+Loaded new graph in 630.70s
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Adding data to data/FEED_INFO.csv... OK
+Finished updating data source.
+Updating graph...
+Semantifying data...
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_trips_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_frequencies_000
+Successfully semantified data.
+
+
+Successfully semantified all datasets in 208.910 seconds.
+Finished updating graph in 593.76s.
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Removing data from data/AGENCY.csv... OK
+Finished updating data source.
+Updating graph...
+Semantifying data...
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_trips_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_frequencies_000
+Successfully semantified data.
+
+
+Successfully semantified all datasets in 208.577 seconds.
+Finished updating graph in 593.56s.
+Restoring data sources...
+	Restoring data/AGENCY.csv... OK
+	Restoring data/FEED_INFO.csv... OK
+Restored data sources.
+
+------------------------------------------------------
+Finished running test in 1818.03s.
+Summary:
+	Created new version in 630.70s (9898825 triples)
+	Updated in 593.76s (9898839 triples)
+	Updated in 593.56s (9898839 triples)

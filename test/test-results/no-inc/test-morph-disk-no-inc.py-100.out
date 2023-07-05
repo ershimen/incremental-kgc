@@ -1,0 +1,19 @@
+######################### 1 #########################
+INFO | 2023-06-30 19:11:55,566 | 86 mapping rules retrieved.
+INFO | 2023-06-30 19:11:55,596 | Mapping partition with 1 groups generated.
+INFO | 2023-06-30 19:11:55,596 | Maximum number of rules within mapping group: 86.
+INFO | 2023-06-30 19:11:55,596 | Mappings processed in 1.679 seconds.
+Running test gtfs-bench-csv-morph-disk-no-inc
+Loading new graph...
+INFO | 2023-06-30 19:17:54,868 | Number of triples generated in total: 39595300.
+INFO | 2023-06-30 19:48:33,903 | 86 mapping rules retrieved.
+INFO | 2023-06-30 19:48:33,986 | Mapping partition with 1 groups generated.
+INFO | 2023-06-30 19:48:33,988 | Maximum number of rules within mapping group: 86.
+INFO | 2023-06-30 19:48:33,989 | Mappings processed in 2.075 seconds.
+Loaded new graph in 2197.04s
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Adding data to data/FEED_INFO.csv... OK
+Finished updating data source.
+Updating graph...
+INFO | 2023-06-30 19:55:03,568 | Number of triples generated in total: 39595314.

@@ -1,0 +1,1065 @@
+######################### 1 #########################
+Running test test-rdfizer
+Loading new graph...
+data/STOPS.csv
+	Found new data, saved to .aux/new_data/data/STOPS.csv.
+	No removed data, saved to .aux/removed_data/data/STOPS.csv.
+data/CALENDAR.csv
+	Found new data, saved to .aux/new_data/data/CALENDAR.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR.csv.
+data/STOP_TIMES.csv
+	Found new data, saved to .aux/new_data/data/STOP_TIMES.csv.
+	No removed data, saved to .aux/removed_data/data/STOP_TIMES.csv.
+data/CALENDAR_DATES.csv
+	Found new data, saved to .aux/new_data/data/CALENDAR_DATES.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR_DATES.csv.
+data/ROUTES.csv
+	Found new data, saved to .aux/new_data/data/ROUTES.csv.
+	No removed data, saved to .aux/removed_data/data/ROUTES.csv.
+data/AGENCY.csv
+	Found new data, saved to .aux/new_data/data/AGENCY.csv.
+	No removed data, saved to .aux/removed_data/data/AGENCY.csv.
+data/SHAPES.csv
+	Found new data, saved to .aux/new_data/data/SHAPES.csv.
+	No removed data, saved to .aux/removed_data/data/SHAPES.csv.
+data/FREQUENCIES.csv
+	Found new data, saved to .aux/new_data/data/FREQUENCIES.csv.
+	No removed data, saved to .aux/removed_data/data/FREQUENCIES.csv.
+data/FEED_INFO.csv
+	Found new data, saved to .aux/new_data/data/FEED_INFO.csv.
+	No removed data, saved to .aux/removed_data/data/FEED_INFO.csv.
+data/TRIPS.csv
+	Found new data, saved to .aux/new_data/data/TRIPS.csv.
+	No removed data, saved to .aux/removed_data/data/TRIPS.csv.
+Finished calculating diff in 2.03s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+Semantifying new_data...
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_frequencies_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_trips_000
+Successfully semantified new_data.
+
+
+Successfully semantified all datasets in 56.508 seconds.
+No removed data detected in the data source, no need to run the mapping engine.
+Materialization complete in 135.05s
+Loaded new graph in 137.53s
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Adding data to data/FEED_INFO.csv... OK
+Finished updating data source.
+Updating graph...
+data/STOPS.csv
+	No new data, saved to .aux/new_data/data/STOPS.csv.
+	No removed data, saved to .aux/removed_data/data/STOPS.csv.
+data/CALENDAR.csv
+	No new data, saved to .aux/new_data/data/CALENDAR.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR.csv.
+data/STOP_TIMES.csv
+	No new data, saved to .aux/new_data/data/STOP_TIMES.csv.
+	No removed data, saved to .aux/removed_data/data/STOP_TIMES.csv.
+data/CALENDAR_DATES.csv
+	No new data, saved to .aux/new_data/data/CALENDAR_DATES.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR_DATES.csv.
+data/ROUTES.csv
+	No new data, saved to .aux/new_data/data/ROUTES.csv.
+	No removed data, saved to .aux/removed_data/data/ROUTES.csv.
+data/AGENCY.csv
+	Found new data, saved to .aux/new_data/data/AGENCY.csv.
+	No removed data, saved to .aux/removed_data/data/AGENCY.csv.
+data/SHAPES.csv
+	No new data, saved to .aux/new_data/data/SHAPES.csv.
+	No removed data, saved to .aux/removed_data/data/SHAPES.csv.
+data/FREQUENCIES.csv
+	No new data, saved to .aux/new_data/data/FREQUENCIES.csv.
+	No removed data, saved to .aux/removed_data/data/FREQUENCIES.csv.
+data/FEED_INFO.csv
+	Found new data, saved to .aux/new_data/data/FEED_INFO.csv.
+	No removed data, saved to .aux/removed_data/data/FEED_INFO.csv.
+data/TRIPS.csv
+	No new data, saved to .aux/new_data/data/TRIPS.csv.
+	No removed data, saved to .aux/removed_data/data/TRIPS.csv.
+Finished calculating diff in 1.02s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+Semantifying new_data...
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_frequencies_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_trips_000
+Successfully semantified new_data.
+
+
+Successfully semantified all datasets in 1.029 seconds.
+No removed data detected in the data source, no need to run the mapping engine.
+Materialization complete in 1.07s
+Constructing new graph... OK (0.00s)
+Finished updating graph in 2.64s.
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Removing data from data/AGENCY.csv... OK
+Finished updating data source.
+Updating graph...
+data/STOPS.csv
+	No new data, saved to .aux/new_data/data/STOPS.csv.
+	No removed data, saved to .aux/removed_data/data/STOPS.csv.
+data/CALENDAR.csv
+	No new data, saved to .aux/new_data/data/CALENDAR.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR.csv.
+data/STOP_TIMES.csv
+	No new data, saved to .aux/new_data/data/STOP_TIMES.csv.
+	No removed data, saved to .aux/removed_data/data/STOP_TIMES.csv.
+data/CALENDAR_DATES.csv
+	No new data, saved to .aux/new_data/data/CALENDAR_DATES.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR_DATES.csv.
+data/ROUTES.csv
+	No new data, saved to .aux/new_data/data/ROUTES.csv.
+	No removed data, saved to .aux/removed_data/data/ROUTES.csv.
+data/AGENCY.csv
+	Found new data, saved to .aux/new_data/data/AGENCY.csv.
+	Found removed data, saved to .aux/removed_data/data/AGENCY.csv.
+data/SHAPES.csv
+	No new data, saved to .aux/new_data/data/SHAPES.csv.
+	No removed data, saved to .aux/removed_data/data/SHAPES.csv.
+data/FREQUENCIES.csv
+	No new data, saved to .aux/new_data/data/FREQUENCIES.csv.
+	No removed data, saved to .aux/removed_data/data/FREQUENCIES.csv.
+data/FEED_INFO.csv
+	No new data, saved to .aux/new_data/data/FEED_INFO.csv.
+	No removed data, saved to .aux/removed_data/data/FEED_INFO.csv.
+data/TRIPS.csv
+	No new data, saved to .aux/new_data/data/TRIPS.csv.
+	No removed data, saved to .aux/removed_data/data/TRIPS.csv.
+Finished calculating diff in 1.08s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+Semantifying new_data...
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_frequencies_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_trips_000
+Successfully semantified new_data.
+
+
+Successfully semantified all datasets in 1.003 seconds.
+Updating mappings... OK
+Semantifying removed_data...
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_frequencies_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_trips_000
+Successfully semantified removed_data.
+
+
+Successfully semantified all datasets in 1.006 seconds.
+Materialization complete in 2.09s
+Constructing new graph... OK (0.00s)
+Finished updating graph in 3.73s.
+Restoring data sources...
+	Restoring data/AGENCY.csv... OK
+	Restoring data/FEED_INFO.csv... OK
+Restored data sources.
+Deleting .aux/snapshot.pkl... OK
+
+------------------------------------------------------
+Finished running test in 143.92s.
+Summary:
+	Created new version in 137.53s (1979765 triples)
+	Updated in 2.64s (1979779 triples)
+	Updated in 3.73s (1979779 triples)
+######################### 2 #########################
+Running test test-rdfizer
+Loading new graph...
+data/CALENDAR.csv
+	Found new data, saved to .aux/new_data/data/CALENDAR.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR.csv.
+data/TRIPS.csv
+	Found new data, saved to .aux/new_data/data/TRIPS.csv.
+	No removed data, saved to .aux/removed_data/data/TRIPS.csv.
+data/AGENCY.csv
+	Found new data, saved to .aux/new_data/data/AGENCY.csv.
+	No removed data, saved to .aux/removed_data/data/AGENCY.csv.
+data/STOPS.csv
+	Found new data, saved to .aux/new_data/data/STOPS.csv.
+	No removed data, saved to .aux/removed_data/data/STOPS.csv.
+data/ROUTES.csv
+	Found new data, saved to .aux/new_data/data/ROUTES.csv.
+	No removed data, saved to .aux/removed_data/data/ROUTES.csv.
+data/CALENDAR_DATES.csv
+	Found new data, saved to .aux/new_data/data/CALENDAR_DATES.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR_DATES.csv.
+data/FREQUENCIES.csv
+	Found new data, saved to .aux/new_data/data/FREQUENCIES.csv.
+	No removed data, saved to .aux/removed_data/data/FREQUENCIES.csv.
+data/STOP_TIMES.csv
+	Found new data, saved to .aux/new_data/data/STOP_TIMES.csv.
+	No removed data, saved to .aux/removed_data/data/STOP_TIMES.csv.
+data/FEED_INFO.csv
+	Found new data, saved to .aux/new_data/data/FEED_INFO.csv.
+	No removed data, saved to .aux/removed_data/data/FEED_INFO.csv.
+data/SHAPES.csv
+	Found new data, saved to .aux/new_data/data/SHAPES.csv.
+	No removed data, saved to .aux/removed_data/data/SHAPES.csv.
+Finished calculating diff in 1.79s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+Semantifying new_data...
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_frequencies_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_trips_000
+Successfully semantified new_data.
+
+
+Successfully semantified all datasets in 54.843 seconds.
+No removed data detected in the data source, no need to run the mapping engine.
+Materialization complete in 122.71s
+Loaded new graph in 124.88s
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Adding data to data/FEED_INFO.csv... OK
+Finished updating data source.
+Updating graph...
+data/CALENDAR.csv
+	No new data, saved to .aux/new_data/data/CALENDAR.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR.csv.
+data/TRIPS.csv
+	No new data, saved to .aux/new_data/data/TRIPS.csv.
+	No removed data, saved to .aux/removed_data/data/TRIPS.csv.
+data/AGENCY.csv
+	Found new data, saved to .aux/new_data/data/AGENCY.csv.
+	No removed data, saved to .aux/removed_data/data/AGENCY.csv.
+data/STOPS.csv
+	No new data, saved to .aux/new_data/data/STOPS.csv.
+	No removed data, saved to .aux/removed_data/data/STOPS.csv.
+data/ROUTES.csv
+	No new data, saved to .aux/new_data/data/ROUTES.csv.
+	No removed data, saved to .aux/removed_data/data/ROUTES.csv.
+data/CALENDAR_DATES.csv
+	No new data, saved to .aux/new_data/data/CALENDAR_DATES.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR_DATES.csv.
+data/FREQUENCIES.csv
+	No new data, saved to .aux/new_data/data/FREQUENCIES.csv.
+	No removed data, saved to .aux/removed_data/data/FREQUENCIES.csv.
+data/STOP_TIMES.csv
+	No new data, saved to .aux/new_data/data/STOP_TIMES.csv.
+	No removed data, saved to .aux/removed_data/data/STOP_TIMES.csv.
+data/FEED_INFO.csv
+	Found new data, saved to .aux/new_data/data/FEED_INFO.csv.
+	No removed data, saved to .aux/removed_data/data/FEED_INFO.csv.
+data/SHAPES.csv
+	No new data, saved to .aux/new_data/data/SHAPES.csv.
+	No removed data, saved to .aux/removed_data/data/SHAPES.csv.
+Finished calculating diff in 0.90s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+Semantifying new_data...
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_frequencies_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_trips_000
+Successfully semantified new_data.
+
+
+Successfully semantified all datasets in 0.999 seconds.
+No removed data detected in the data source, no need to run the mapping engine.
+Materialization complete in 1.04s
+Constructing new graph... OK (0.00s)
+Finished updating graph in 2.39s.
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Removing data from data/AGENCY.csv... OK
+Finished updating data source.
+Updating graph...
+data/CALENDAR.csv
+	No new data, saved to .aux/new_data/data/CALENDAR.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR.csv.
+data/TRIPS.csv
+	No new data, saved to .aux/new_data/data/TRIPS.csv.
+	No removed data, saved to .aux/removed_data/data/TRIPS.csv.
+data/AGENCY.csv
+	Found new data, saved to .aux/new_data/data/AGENCY.csv.
+	Found removed data, saved to .aux/removed_data/data/AGENCY.csv.
+data/STOPS.csv
+	No new data, saved to .aux/new_data/data/STOPS.csv.
+	No removed data, saved to .aux/removed_data/data/STOPS.csv.
+data/ROUTES.csv
+	No new data, saved to .aux/new_data/data/ROUTES.csv.
+	No removed data, saved to .aux/removed_data/data/ROUTES.csv.
+data/CALENDAR_DATES.csv
+	No new data, saved to .aux/new_data/data/CALENDAR_DATES.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR_DATES.csv.
+data/FREQUENCIES.csv
+	No new data, saved to .aux/new_data/data/FREQUENCIES.csv.
+	No removed data, saved to .aux/removed_data/data/FREQUENCIES.csv.
+data/STOP_TIMES.csv
+	No new data, saved to .aux/new_data/data/STOP_TIMES.csv.
+	No removed data, saved to .aux/removed_data/data/STOP_TIMES.csv.
+data/FEED_INFO.csv
+	No new data, saved to .aux/new_data/data/FEED_INFO.csv.
+	No removed data, saved to .aux/removed_data/data/FEED_INFO.csv.
+data/SHAPES.csv
+	No new data, saved to .aux/new_data/data/SHAPES.csv.
+	No removed data, saved to .aux/removed_data/data/SHAPES.csv.
+Finished calculating diff in 0.90s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+Semantifying new_data...
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_frequencies_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_trips_000
+Successfully semantified new_data.
+
+
+Successfully semantified all datasets in 0.975 seconds.
+Updating mappings... OK
+Semantifying removed_data...
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_frequencies_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_trips_000
+Successfully semantified removed_data.
+
+
+Successfully semantified all datasets in 0.975 seconds.
+Materialization complete in 2.03s
+Constructing new graph... OK (0.00s)
+Finished updating graph in 3.39s.
+Restoring data sources...
+	Restoring data/AGENCY.csv... OK
+	Restoring data/FEED_INFO.csv... OK
+Restored data sources.
+Deleting .aux/snapshot.pkl... OK
+
+------------------------------------------------------
+Finished running test in 130.67s.
+Summary:
+	Created new version in 124.88s (1979765 triples)
+	Updated in 2.39s (1979779 triples)
+	Updated in 3.39s (1979779 triples)
+######################### 3 #########################
+Running test test-rdfizer
+Loading new graph...
+data/FEED_INFO.csv
+	Found new data, saved to .aux/new_data/data/FEED_INFO.csv.
+	No removed data, saved to .aux/removed_data/data/FEED_INFO.csv.
+data/TRIPS.csv
+	Found new data, saved to .aux/new_data/data/TRIPS.csv.
+	No removed data, saved to .aux/removed_data/data/TRIPS.csv.
+data/STOPS.csv
+	Found new data, saved to .aux/new_data/data/STOPS.csv.
+	No removed data, saved to .aux/removed_data/data/STOPS.csv.
+data/AGENCY.csv
+	Found new data, saved to .aux/new_data/data/AGENCY.csv.
+	No removed data, saved to .aux/removed_data/data/AGENCY.csv.
+data/CALENDAR_DATES.csv
+	Found new data, saved to .aux/new_data/data/CALENDAR_DATES.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR_DATES.csv.
+data/CALENDAR.csv
+	Found new data, saved to .aux/new_data/data/CALENDAR.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR.csv.
+data/ROUTES.csv
+	Found new data, saved to .aux/new_data/data/ROUTES.csv.
+	No removed data, saved to .aux/removed_data/data/ROUTES.csv.
+data/STOP_TIMES.csv
+	Found new data, saved to .aux/new_data/data/STOP_TIMES.csv.
+	No removed data, saved to .aux/removed_data/data/STOP_TIMES.csv.
+data/SHAPES.csv
+	Found new data, saved to .aux/new_data/data/SHAPES.csv.
+	No removed data, saved to .aux/removed_data/data/SHAPES.csv.
+data/FREQUENCIES.csv
+	Found new data, saved to .aux/new_data/data/FREQUENCIES.csv.
+	No removed data, saved to .aux/removed_data/data/FREQUENCIES.csv.
+Finished calculating diff in 1.81s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+Semantifying new_data...
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_frequencies_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_trips_000
+Successfully semantified new_data.
+
+
+Successfully semantified all datasets in 57.122 seconds.
+No removed data detected in the data source, no need to run the mapping engine.
+Materialization complete in 125.48s
+Loaded new graph in 127.67s
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Adding data to data/FEED_INFO.csv... OK
+Finished updating data source.
+Updating graph...
+data/FEED_INFO.csv
+	Found new data, saved to .aux/new_data/data/FEED_INFO.csv.
+	No removed data, saved to .aux/removed_data/data/FEED_INFO.csv.
+data/TRIPS.csv
+	No new data, saved to .aux/new_data/data/TRIPS.csv.
+	No removed data, saved to .aux/removed_data/data/TRIPS.csv.
+data/STOPS.csv
+	No new data, saved to .aux/new_data/data/STOPS.csv.
+	No removed data, saved to .aux/removed_data/data/STOPS.csv.
+data/AGENCY.csv
+	Found new data, saved to .aux/new_data/data/AGENCY.csv.
+	No removed data, saved to .aux/removed_data/data/AGENCY.csv.
+data/CALENDAR_DATES.csv
+	No new data, saved to .aux/new_data/data/CALENDAR_DATES.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR_DATES.csv.
+data/CALENDAR.csv
+	No new data, saved to .aux/new_data/data/CALENDAR.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR.csv.
+data/ROUTES.csv
+	No new data, saved to .aux/new_data/data/ROUTES.csv.
+	No removed data, saved to .aux/removed_data/data/ROUTES.csv.
+data/STOP_TIMES.csv
+	No new data, saved to .aux/new_data/data/STOP_TIMES.csv.
+	No removed data, saved to .aux/removed_data/data/STOP_TIMES.csv.
+data/SHAPES.csv
+	No new data, saved to .aux/new_data/data/SHAPES.csv.
+	No removed data, saved to .aux/removed_data/data/SHAPES.csv.
+data/FREQUENCIES.csv
+	No new data, saved to .aux/new_data/data/FREQUENCIES.csv.
+	No removed data, saved to .aux/removed_data/data/FREQUENCIES.csv.
+Finished calculating diff in 0.90s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+Semantifying new_data...
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_frequencies_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_trips_000
+Successfully semantified new_data.
+
+
+Successfully semantified all datasets in 1.003 seconds.
+No removed data detected in the data source, no need to run the mapping engine.
+Materialization complete in 1.04s
+Constructing new graph... OK (0.00s)
+Finished updating graph in 2.40s.
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Removing data from data/AGENCY.csv... OK
+Finished updating data source.
+Updating graph...
+data/FEED_INFO.csv
+	No new data, saved to .aux/new_data/data/FEED_INFO.csv.
+	No removed data, saved to .aux/removed_data/data/FEED_INFO.csv.
+data/TRIPS.csv
+	No new data, saved to .aux/new_data/data/TRIPS.csv.
+	No removed data, saved to .aux/removed_data/data/TRIPS.csv.
+data/STOPS.csv
+	No new data, saved to .aux/new_data/data/STOPS.csv.
+	No removed data, saved to .aux/removed_data/data/STOPS.csv.
+data/AGENCY.csv
+	Found new data, saved to .aux/new_data/data/AGENCY.csv.
+	Found removed data, saved to .aux/removed_data/data/AGENCY.csv.
+data/CALENDAR_DATES.csv
+	No new data, saved to .aux/new_data/data/CALENDAR_DATES.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR_DATES.csv.
+data/CALENDAR.csv
+	No new data, saved to .aux/new_data/data/CALENDAR.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR.csv.
+data/ROUTES.csv
+	No new data, saved to .aux/new_data/data/ROUTES.csv.
+	No removed data, saved to .aux/removed_data/data/ROUTES.csv.
+data/STOP_TIMES.csv
+	No new data, saved to .aux/new_data/data/STOP_TIMES.csv.
+	No removed data, saved to .aux/removed_data/data/STOP_TIMES.csv.
+data/SHAPES.csv
+	No new data, saved to .aux/new_data/data/SHAPES.csv.
+	No removed data, saved to .aux/removed_data/data/SHAPES.csv.
+data/FREQUENCIES.csv
+	No new data, saved to .aux/new_data/data/FREQUENCIES.csv.
+	No removed data, saved to .aux/removed_data/data/FREQUENCIES.csv.
+Finished calculating diff in 0.91s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+Semantifying new_data...
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_frequencies_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_trips_000
+Successfully semantified new_data.
+
+
+Successfully semantified all datasets in 0.974 seconds.
+Updating mappings... OK
+Semantifying removed_data...
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_frequencies_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_trips_000
+Successfully semantified removed_data.
+
+
+Successfully semantified all datasets in 0.978 seconds.
+Materialization complete in 2.03s
+Constructing new graph... OK (0.00s)
+Finished updating graph in 3.39s.
+Restoring data sources...
+	Restoring data/AGENCY.csv... OK
+	Restoring data/FEED_INFO.csv... OK
+Restored data sources.
+Deleting .aux/snapshot.pkl... OK
+
+------------------------------------------------------
+Finished running test in 133.47s.
+Summary:
+	Created new version in 127.67s (1979765 triples)
+	Updated in 2.40s (1979779 triples)
+	Updated in 3.39s (1979779 triples)
+######################### 4 #########################
+Running test test-rdfizer
+Loading new graph...
+data/FREQUENCIES.csv
+	Found new data, saved to .aux/new_data/data/FREQUENCIES.csv.
+	No removed data, saved to .aux/removed_data/data/FREQUENCIES.csv.
+data/AGENCY.csv
+	Found new data, saved to .aux/new_data/data/AGENCY.csv.
+	No removed data, saved to .aux/removed_data/data/AGENCY.csv.
+data/TRIPS.csv
+	Found new data, saved to .aux/new_data/data/TRIPS.csv.
+	No removed data, saved to .aux/removed_data/data/TRIPS.csv.
+data/FEED_INFO.csv
+	Found new data, saved to .aux/new_data/data/FEED_INFO.csv.
+	No removed data, saved to .aux/removed_data/data/FEED_INFO.csv.
+data/CALENDAR_DATES.csv
+	Found new data, saved to .aux/new_data/data/CALENDAR_DATES.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR_DATES.csv.
+data/SHAPES.csv
+	Found new data, saved to .aux/new_data/data/SHAPES.csv.
+	No removed data, saved to .aux/removed_data/data/SHAPES.csv.
+data/ROUTES.csv
+	Found new data, saved to .aux/new_data/data/ROUTES.csv.
+	No removed data, saved to .aux/removed_data/data/ROUTES.csv.
+data/CALENDAR.csv
+	Found new data, saved to .aux/new_data/data/CALENDAR.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR.csv.
+data/STOPS.csv
+	Found new data, saved to .aux/new_data/data/STOPS.csv.
+	No removed data, saved to .aux/removed_data/data/STOPS.csv.
+data/STOP_TIMES.csv
+	Found new data, saved to .aux/new_data/data/STOP_TIMES.csv.
+	No removed data, saved to .aux/removed_data/data/STOP_TIMES.csv.
+Finished calculating diff in 1.78s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+Semantifying new_data...
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_frequencies_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_trips_000
+Successfully semantified new_data.
+
+
+Successfully semantified all datasets in 54.684 seconds.
+No removed data detected in the data source, no need to run the mapping engine.
+Materialization complete in 122.14s
+Loaded new graph in 124.28s
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Adding data to data/FEED_INFO.csv... OK
+Finished updating data source.
+Updating graph...
+data/FREQUENCIES.csv
+	No new data, saved to .aux/new_data/data/FREQUENCIES.csv.
+	No removed data, saved to .aux/removed_data/data/FREQUENCIES.csv.
+data/AGENCY.csv
+	Found new data, saved to .aux/new_data/data/AGENCY.csv.
+	No removed data, saved to .aux/removed_data/data/AGENCY.csv.
+data/TRIPS.csv
+	No new data, saved to .aux/new_data/data/TRIPS.csv.
+	No removed data, saved to .aux/removed_data/data/TRIPS.csv.
+data/FEED_INFO.csv
+	Found new data, saved to .aux/new_data/data/FEED_INFO.csv.
+	No removed data, saved to .aux/removed_data/data/FEED_INFO.csv.
+data/CALENDAR_DATES.csv
+	No new data, saved to .aux/new_data/data/CALENDAR_DATES.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR_DATES.csv.
+data/SHAPES.csv
+	No new data, saved to .aux/new_data/data/SHAPES.csv.
+	No removed data, saved to .aux/removed_data/data/SHAPES.csv.
+data/ROUTES.csv
+	No new data, saved to .aux/new_data/data/ROUTES.csv.
+	No removed data, saved to .aux/removed_data/data/ROUTES.csv.
+data/CALENDAR.csv
+	No new data, saved to .aux/new_data/data/CALENDAR.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR.csv.
+data/STOPS.csv
+	No new data, saved to .aux/new_data/data/STOPS.csv.
+	No removed data, saved to .aux/removed_data/data/STOPS.csv.
+data/STOP_TIMES.csv
+	No new data, saved to .aux/new_data/data/STOP_TIMES.csv.
+	No removed data, saved to .aux/removed_data/data/STOP_TIMES.csv.
+Finished calculating diff in 0.87s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+Semantifying new_data...
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_frequencies_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_trips_000
+Successfully semantified new_data.
+
+
+Successfully semantified all datasets in 0.994 seconds.
+No removed data detected in the data source, no need to run the mapping engine.
+Materialization complete in 1.03s
+Constructing new graph... OK (0.00s)
+Finished updating graph in 2.35s.
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Removing data from data/AGENCY.csv... OK
+Finished updating data source.
+Updating graph...
+data/FREQUENCIES.csv
+	No new data, saved to .aux/new_data/data/FREQUENCIES.csv.
+	No removed data, saved to .aux/removed_data/data/FREQUENCIES.csv.
+data/AGENCY.csv
+	Found new data, saved to .aux/new_data/data/AGENCY.csv.
+	Found removed data, saved to .aux/removed_data/data/AGENCY.csv.
+data/TRIPS.csv
+	No new data, saved to .aux/new_data/data/TRIPS.csv.
+	No removed data, saved to .aux/removed_data/data/TRIPS.csv.
+data/FEED_INFO.csv
+	No new data, saved to .aux/new_data/data/FEED_INFO.csv.
+	No removed data, saved to .aux/removed_data/data/FEED_INFO.csv.
+data/CALENDAR_DATES.csv
+	No new data, saved to .aux/new_data/data/CALENDAR_DATES.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR_DATES.csv.
+data/SHAPES.csv
+	No new data, saved to .aux/new_data/data/SHAPES.csv.
+	No removed data, saved to .aux/removed_data/data/SHAPES.csv.
+data/ROUTES.csv
+	No new data, saved to .aux/new_data/data/ROUTES.csv.
+	No removed data, saved to .aux/removed_data/data/ROUTES.csv.
+data/CALENDAR.csv
+	No new data, saved to .aux/new_data/data/CALENDAR.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR.csv.
+data/STOPS.csv
+	No new data, saved to .aux/new_data/data/STOPS.csv.
+	No removed data, saved to .aux/removed_data/data/STOPS.csv.
+data/STOP_TIMES.csv
+	No new data, saved to .aux/new_data/data/STOP_TIMES.csv.
+	No removed data, saved to .aux/removed_data/data/STOP_TIMES.csv.
+Finished calculating diff in 0.88s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+Semantifying new_data...
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_frequencies_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_trips_000
+Successfully semantified new_data.
+
+
+Successfully semantified all datasets in 0.968 seconds.
+Updating mappings... OK
+Semantifying removed_data...
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_frequencies_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_trips_000
+Successfully semantified removed_data.
+
+
+Successfully semantified all datasets in 0.967 seconds.
+Materialization complete in 2.01s
+Constructing new graph... OK (0.00s)
+Finished updating graph in 3.34s.
+Restoring data sources...
+	Restoring data/AGENCY.csv... OK
+	Restoring data/FEED_INFO.csv... OK
+Restored data sources.
+Deleting .aux/snapshot.pkl... OK
+
+------------------------------------------------------
+Finished running test in 129.99s.
+Summary:
+	Created new version in 124.28s (1979765 triples)
+	Updated in 2.35s (1979779 triples)
+	Updated in 3.34s (1979779 triples)
+######################### 5 #########################
+Running test test-rdfizer
+Loading new graph...
+data/CALENDAR.csv
+	Found new data, saved to .aux/new_data/data/CALENDAR.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR.csv.
+data/SHAPES.csv
+	Found new data, saved to .aux/new_data/data/SHAPES.csv.
+	No removed data, saved to .aux/removed_data/data/SHAPES.csv.
+data/STOP_TIMES.csv
+	Found new data, saved to .aux/new_data/data/STOP_TIMES.csv.
+	No removed data, saved to .aux/removed_data/data/STOP_TIMES.csv.
+data/FREQUENCIES.csv
+	Found new data, saved to .aux/new_data/data/FREQUENCIES.csv.
+	No removed data, saved to .aux/removed_data/data/FREQUENCIES.csv.
+data/TRIPS.csv
+	Found new data, saved to .aux/new_data/data/TRIPS.csv.
+	No removed data, saved to .aux/removed_data/data/TRIPS.csv.
+data/AGENCY.csv
+	Found new data, saved to .aux/new_data/data/AGENCY.csv.
+	No removed data, saved to .aux/removed_data/data/AGENCY.csv.
+data/STOPS.csv
+	Found new data, saved to .aux/new_data/data/STOPS.csv.
+	No removed data, saved to .aux/removed_data/data/STOPS.csv.
+data/ROUTES.csv
+	Found new data, saved to .aux/new_data/data/ROUTES.csv.
+	No removed data, saved to .aux/removed_data/data/ROUTES.csv.
+data/CALENDAR_DATES.csv
+	Found new data, saved to .aux/new_data/data/CALENDAR_DATES.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR_DATES.csv.
+data/FEED_INFO.csv
+	Found new data, saved to .aux/new_data/data/FEED_INFO.csv.
+	No removed data, saved to .aux/removed_data/data/FEED_INFO.csv.
+Finished calculating diff in 1.80s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+Semantifying new_data...
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_frequencies_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_trips_000
+Successfully semantified new_data.
+
+
+Successfully semantified all datasets in 55.421 seconds.
+No removed data detected in the data source, no need to run the mapping engine.
+Materialization complete in 123.95s
+Loaded new graph in 126.12s
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Adding data to data/FEED_INFO.csv... OK
+Finished updating data source.
+Updating graph...
+data/CALENDAR.csv
+	No new data, saved to .aux/new_data/data/CALENDAR.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR.csv.
+data/SHAPES.csv
+	No new data, saved to .aux/new_data/data/SHAPES.csv.
+	No removed data, saved to .aux/removed_data/data/SHAPES.csv.
+data/STOP_TIMES.csv
+	No new data, saved to .aux/new_data/data/STOP_TIMES.csv.
+	No removed data, saved to .aux/removed_data/data/STOP_TIMES.csv.
+data/FREQUENCIES.csv
+	No new data, saved to .aux/new_data/data/FREQUENCIES.csv.
+	No removed data, saved to .aux/removed_data/data/FREQUENCIES.csv.
+data/TRIPS.csv
+	No new data, saved to .aux/new_data/data/TRIPS.csv.
+	No removed data, saved to .aux/removed_data/data/TRIPS.csv.
+data/AGENCY.csv
+	Found new data, saved to .aux/new_data/data/AGENCY.csv.
+	No removed data, saved to .aux/removed_data/data/AGENCY.csv.
+data/STOPS.csv
+	No new data, saved to .aux/new_data/data/STOPS.csv.
+	No removed data, saved to .aux/removed_data/data/STOPS.csv.
+data/ROUTES.csv
+	No new data, saved to .aux/new_data/data/ROUTES.csv.
+	No removed data, saved to .aux/removed_data/data/ROUTES.csv.
+data/CALENDAR_DATES.csv
+	No new data, saved to .aux/new_data/data/CALENDAR_DATES.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR_DATES.csv.
+data/FEED_INFO.csv
+	Found new data, saved to .aux/new_data/data/FEED_INFO.csv.
+	No removed data, saved to .aux/removed_data/data/FEED_INFO.csv.
+Finished calculating diff in 0.89s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+Semantifying new_data...
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_frequencies_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_trips_000
+Successfully semantified new_data.
+
+
+Successfully semantified all datasets in 1.018 seconds.
+No removed data detected in the data source, no need to run the mapping engine.
+Materialization complete in 1.06s
+Constructing new graph... OK (0.00s)
+Finished updating graph in 2.41s.
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Removing data from data/AGENCY.csv... OK
+Finished updating data source.
+Updating graph...
+data/CALENDAR.csv
+	No new data, saved to .aux/new_data/data/CALENDAR.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR.csv.
+data/SHAPES.csv
+	No new data, saved to .aux/new_data/data/SHAPES.csv.
+	No removed data, saved to .aux/removed_data/data/SHAPES.csv.
+data/STOP_TIMES.csv
+	No new data, saved to .aux/new_data/data/STOP_TIMES.csv.
+	No removed data, saved to .aux/removed_data/data/STOP_TIMES.csv.
+data/FREQUENCIES.csv
+	No new data, saved to .aux/new_data/data/FREQUENCIES.csv.
+	No removed data, saved to .aux/removed_data/data/FREQUENCIES.csv.
+data/TRIPS.csv
+	No new data, saved to .aux/new_data/data/TRIPS.csv.
+	No removed data, saved to .aux/removed_data/data/TRIPS.csv.
+data/AGENCY.csv
+	Found new data, saved to .aux/new_data/data/AGENCY.csv.
+	Found removed data, saved to .aux/removed_data/data/AGENCY.csv.
+data/STOPS.csv
+	No new data, saved to .aux/new_data/data/STOPS.csv.
+	No removed data, saved to .aux/removed_data/data/STOPS.csv.
+data/ROUTES.csv
+	No new data, saved to .aux/new_data/data/ROUTES.csv.
+	No removed data, saved to .aux/removed_data/data/ROUTES.csv.
+data/CALENDAR_DATES.csv
+	No new data, saved to .aux/new_data/data/CALENDAR_DATES.csv.
+	No removed data, saved to .aux/removed_data/data/CALENDAR_DATES.csv.
+data/FEED_INFO.csv
+	No new data, saved to .aux/new_data/data/FEED_INFO.csv.
+	No removed data, saved to .aux/removed_data/data/FEED_INFO.csv.
+Finished calculating diff in 0.91s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+Semantifying new_data...
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_frequencies_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_trips_000
+Successfully semantified new_data.
+
+
+Successfully semantified all datasets in 0.989 seconds.
+Updating mappings... OK
+Semantifying removed_data...
+TM: http://mapping.example.com/map_calendar_date_rules_000
+TM: http://mapping.example.com/map_services2_000
+TM: http://mapping.example.com/map_feed_000
+TM: http://mapping.example.com/map_frequencies_000
+TM: http://mapping.example.com/map_shapePoints_000
+TM: http://mapping.example.com/map_shapes_000
+TM: http://mapping.example.com/map_stoptimes_000
+TM: http://mapping.example.com/map_agency_000
+TM: http://mapping.example.com/map_calendar_rules_000
+TM: http://mapping.example.com/map_services1_000
+TM: http://mapping.example.com/map_routes_000
+TM: http://mapping.example.com/map_stops_000
+TM: http://mapping.example.com/map_trips_000
+Successfully semantified removed_data.
+
+
+Successfully semantified all datasets in 0.991 seconds.
+Materialization complete in 2.06s
+Constructing new graph... OK (0.00s)
+Finished updating graph in 3.43s.
+Restoring data sources...
+	Restoring data/AGENCY.csv... OK
+	Restoring data/FEED_INFO.csv... OK
+Restored data sources.
+Deleting .aux/snapshot.pkl... OK
+
+------------------------------------------------------
+Finished running test in 131.98s.
+Summary:
+	Created new version in 126.12s (1979765 triples)
+	Updated in 2.41s (1979779 triples)
+	Updated in 3.43s (1979779 triples)

@@ -1,0 +1,805 @@
+######################### 1 #########################
+INFO | 2023-07-03 22:52:39,910 | 86 mapping rules retrieved.
+INFO | 2023-07-03 22:52:39,938 | Mapping partition with 1 groups generated.
+INFO | 2023-07-03 22:52:39,939 | Maximum number of rules within mapping group: 86.
+INFO | 2023-07-03 22:52:39,939 | Mappings processed in 1.644 seconds.
+Running test test-morph-memory
+Loading new graph...
+data/STOP_TIMES.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/STOPS.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/CALENDAR_DATES.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FREQUENCIES.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/AGENCY.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/ROUTES.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FEED_INFO.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/TRIPS.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/CALENDAR.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/SHAPES.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+Finished calculating diff in 8.18s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+INFO | 2023-07-03 22:54:09,150 | Number of triples generated in total: 9898825.
+INFO | 2023-07-03 23:01:27,225 | 86 mapping rules retrieved.
+INFO | 2023-07-03 23:01:27,253 | Mapping partition with 1 groups generated.
+INFO | 2023-07-03 23:01:27,253 | Maximum number of rules within mapping group: 86.
+INFO | 2023-07-03 23:01:27,253 | Mappings processed in 1.594 seconds.
+No removed data detected in the data source, no need to run the mapping engine.
+Materialization complete in 518.75s
+Loaded new graph in 529.26s
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Adding data to data/FEED_INFO.csv... OK
+Finished updating data source.
+Updating graph...
+data/STOP_TIMES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/STOPS.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/CALENDAR_DATES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FREQUENCIES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/AGENCY.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/ROUTES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FEED_INFO.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/TRIPS.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/CALENDAR.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/SHAPES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+Finished calculating diff in 5.45s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+INFO | 2023-07-03 23:01:34,586 | Number of triples generated in total: 14.
+INFO | 2023-07-03 23:01:44,669 | 86 mapping rules retrieved.
+INFO | 2023-07-03 23:01:44,697 | Mapping partition with 1 groups generated.
+INFO | 2023-07-03 23:01:44,697 | Maximum number of rules within mapping group: 86.
+INFO | 2023-07-03 23:01:44,697 | Mappings processed in 1.599 seconds.
+No removed data detected in the data source, no need to run the mapping engine.
+Materialization complete in 8.98s
+Constructing new graph... OK (0.00s)
+Finished updating graph in 17.41s.
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Removing data from data/AGENCY.csv... OK
+Finished updating data source.
+Updating graph...
+data/STOP_TIMES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/STOPS.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/CALENDAR_DATES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FREQUENCIES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/AGENCY.csv
+	Found new data, saved to dataframe.
+	Found removed data, saved to dataframe.
+data/ROUTES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FEED_INFO.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/TRIPS.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/CALENDAR.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/SHAPES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+Finished calculating diff in 5.49s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+INFO | 2023-07-03 23:01:51,993 | Number of triples generated in total: 7.
+INFO | 2023-07-03 23:01:53,632 | 86 mapping rules retrieved.
+INFO | 2023-07-03 23:01:53,660 | Mapping partition with 1 groups generated.
+INFO | 2023-07-03 23:01:53,661 | Maximum number of rules within mapping group: 86.
+INFO | 2023-07-03 23:01:53,661 | Mappings processed in 1.604 seconds.
+Updating mappings... OK
+INFO | 2023-07-03 23:02:00,933 | Number of triples generated in total: 7.
+Materialization complete in 17.89s
+Constructing new graph... OK (0.00s)
+Finished updating graph in 26.33s.
+Restoring data sources...
+	Restoring data/AGENCY.csv... OK
+	Restoring data/FEED_INFO.csv... OK
+Restored data sources.
+Deleting .aux/snapshot.pkl... OK
+
+------------------------------------------------------
+Finished running test in 573.05s.
+Summary:
+	Created new version in 529.26s (9898825 triples)
+	Updated in 17.41s (9898839 triples)
+	Updated in 26.33s (9898839 triples)
+######################### 2 #########################
+INFO | 2023-07-03 23:03:13,470 | 86 mapping rules retrieved.
+INFO | 2023-07-03 23:03:13,498 | Mapping partition with 1 groups generated.
+INFO | 2023-07-03 23:03:13,499 | Maximum number of rules within mapping group: 86.
+INFO | 2023-07-03 23:03:13,499 | Mappings processed in 1.645 seconds.
+Running test test-morph-memory
+Loading new graph...
+data/SHAPES.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/ROUTES.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/STOP_TIMES.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FEED_INFO.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/STOPS.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/TRIPS.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/CALENDAR.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FREQUENCIES.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/AGENCY.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/CALENDAR_DATES.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+Finished calculating diff in 8.27s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+INFO | 2023-07-03 23:04:43,218 | Number of triples generated in total: 9898825.
+INFO | 2023-07-03 23:11:57,587 | 86 mapping rules retrieved.
+INFO | 2023-07-03 23:11:57,614 | Mapping partition with 1 groups generated.
+INFO | 2023-07-03 23:11:57,615 | Maximum number of rules within mapping group: 86.
+INFO | 2023-07-03 23:11:57,615 | Mappings processed in 1.595 seconds.
+No removed data detected in the data source, no need to run the mapping engine.
+Materialization complete in 515.35s
+Loaded new graph in 525.97s
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Adding data to data/FEED_INFO.csv... OK
+Finished updating data source.
+Updating graph...
+data/SHAPES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/ROUTES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/STOP_TIMES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FEED_INFO.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/STOPS.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/TRIPS.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/CALENDAR.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FREQUENCIES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/AGENCY.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/CALENDAR_DATES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+Finished calculating diff in 5.51s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+INFO | 2023-07-03 23:12:05,230 | Number of triples generated in total: 14.
+INFO | 2023-07-03 23:12:15,403 | 86 mapping rules retrieved.
+INFO | 2023-07-03 23:12:15,431 | Mapping partition with 1 groups generated.
+INFO | 2023-07-03 23:12:15,431 | Maximum number of rules within mapping group: 86.
+INFO | 2023-07-03 23:12:15,431 | Mappings processed in 1.589 seconds.
+No removed data detected in the data source, no need to run the mapping engine.
+Materialization complete in 9.27s
+Constructing new graph... OK (0.00s)
+Finished updating graph in 17.87s.
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Removing data from data/AGENCY.csv... OK
+Finished updating data source.
+Updating graph...
+data/SHAPES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/ROUTES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/STOP_TIMES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FEED_INFO.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/STOPS.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/TRIPS.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/CALENDAR.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FREQUENCIES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/AGENCY.csv
+	Found new data, saved to dataframe.
+	Found removed data, saved to dataframe.
+data/CALENDAR_DATES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+Finished calculating diff in 5.50s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+INFO | 2023-07-03 23:12:23,000 | Number of triples generated in total: 7.
+INFO | 2023-07-03 23:12:24,638 | 86 mapping rules retrieved.
+INFO | 2023-07-03 23:12:24,666 | Mapping partition with 1 groups generated.
+INFO | 2023-07-03 23:12:24,666 | Maximum number of rules within mapping group: 86.
+INFO | 2023-07-03 23:12:24,666 | Mappings processed in 1.601 seconds.
+Updating mappings... OK
+INFO | 2023-07-03 23:12:32,155 | Number of triples generated in total: 7.
+Materialization complete in 18.37s
+Constructing new graph... OK (0.00s)
+Finished updating graph in 26.91s.
+Restoring data sources...
+	Restoring data/AGENCY.csv... OK
+	Restoring data/FEED_INFO.csv... OK
+Restored data sources.
+Deleting .aux/snapshot.pkl... OK
+
+------------------------------------------------------
+Finished running test in 570.79s.
+Summary:
+	Created new version in 525.97s (9898825 triples)
+	Updated in 17.87s (9898839 triples)
+	Updated in 26.91s (9898839 triples)
+######################### 3 #########################
+INFO | 2023-07-03 23:13:44,670 | 86 mapping rules retrieved.
+INFO | 2023-07-03 23:13:44,698 | Mapping partition with 1 groups generated.
+INFO | 2023-07-03 23:13:44,699 | Maximum number of rules within mapping group: 86.
+INFO | 2023-07-03 23:13:44,699 | Mappings processed in 1.644 seconds.
+Running test test-morph-memory
+Loading new graph...
+data/TRIPS.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/AGENCY.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/STOP_TIMES.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/STOPS.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FEED_INFO.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FREQUENCIES.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/CALENDAR.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/SHAPES.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/CALENDAR_DATES.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/ROUTES.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+Finished calculating diff in 8.05s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+INFO | 2023-07-03 23:15:13,787 | Number of triples generated in total: 9898825.
+INFO | 2023-07-03 23:22:26,084 | 86 mapping rules retrieved.
+INFO | 2023-07-03 23:22:26,112 | Mapping partition with 1 groups generated.
+INFO | 2023-07-03 23:22:26,113 | Maximum number of rules within mapping group: 86.
+INFO | 2023-07-03 23:22:26,113 | Mappings processed in 1.590 seconds.
+No removed data detected in the data source, no need to run the mapping engine.
+Materialization complete in 512.57s
+Loaded new graph in 522.99s
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Adding data to data/FEED_INFO.csv... OK
+Finished updating data source.
+Updating graph...
+data/TRIPS.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/AGENCY.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/STOP_TIMES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/STOPS.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FEED_INFO.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FREQUENCIES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/CALENDAR.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/SHAPES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/CALENDAR_DATES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/ROUTES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+Finished calculating diff in 5.60s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+INFO | 2023-07-03 23:22:33,622 | Number of triples generated in total: 14.
+INFO | 2023-07-03 23:22:43,800 | 86 mapping rules retrieved.
+INFO | 2023-07-03 23:22:43,828 | Mapping partition with 1 groups generated.
+INFO | 2023-07-03 23:22:43,828 | Maximum number of rules within mapping group: 86.
+INFO | 2023-07-03 23:22:43,828 | Mappings processed in 1.593 seconds.
+No removed data detected in the data source, no need to run the mapping engine.
+Materialization complete in 9.16s
+Constructing new graph... OK (0.00s)
+Finished updating graph in 17.84s.
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Removing data from data/AGENCY.csv... OK
+Finished updating data source.
+Updating graph...
+data/TRIPS.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/AGENCY.csv
+	Found new data, saved to dataframe.
+	Found removed data, saved to dataframe.
+data/STOP_TIMES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/STOPS.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FEED_INFO.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FREQUENCIES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/CALENDAR.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/SHAPES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/CALENDAR_DATES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/ROUTES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+Finished calculating diff in 5.56s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+INFO | 2023-07-03 23:22:51,048 | Number of triples generated in total: 7.
+INFO | 2023-07-03 23:22:52,678 | 86 mapping rules retrieved.
+INFO | 2023-07-03 23:22:52,706 | Mapping partition with 1 groups generated.
+INFO | 2023-07-03 23:22:52,707 | Maximum number of rules within mapping group: 86.
+INFO | 2023-07-03 23:22:52,707 | Mappings processed in 1.595 seconds.
+Updating mappings... OK
+INFO | 2023-07-03 23:22:59,966 | Number of triples generated in total: 7.
+Materialization complete in 17.79s
+Constructing new graph... OK (0.00s)
+Finished updating graph in 26.33s.
+Restoring data sources...
+	Restoring data/AGENCY.csv... OK
+	Restoring data/FEED_INFO.csv... OK
+Restored data sources.
+Deleting .aux/snapshot.pkl... OK
+
+------------------------------------------------------
+Finished running test in 567.20s.
+Summary:
+	Created new version in 522.99s (9898825 triples)
+	Updated in 17.84s (9898839 triples)
+	Updated in 26.33s (9898839 triples)
+######################### 4 #########################
+INFO | 2023-07-03 23:24:10,720 | 86 mapping rules retrieved.
+INFO | 2023-07-03 23:24:10,749 | Mapping partition with 1 groups generated.
+INFO | 2023-07-03 23:24:10,750 | Maximum number of rules within mapping group: 86.
+INFO | 2023-07-03 23:24:10,750 | Mappings processed in 1.658 seconds.
+Running test test-morph-memory
+Loading new graph...
+data/CALENDAR_DATES.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/SHAPES.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/CALENDAR.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/ROUTES.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FREQUENCIES.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/TRIPS.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/STOP_TIMES.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FEED_INFO.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/STOPS.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/AGENCY.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+Finished calculating diff in 8.04s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+INFO | 2023-07-03 23:25:54,739 | Number of triples generated in total: 9898825.
+INFO | 2023-07-03 23:33:07,546 | 86 mapping rules retrieved.
+INFO | 2023-07-03 23:33:07,574 | Mapping partition with 1 groups generated.
+INFO | 2023-07-03 23:33:07,574 | Maximum number of rules within mapping group: 86.
+INFO | 2023-07-03 23:33:07,574 | Mappings processed in 1.614 seconds.
+No removed data detected in the data source, no need to run the mapping engine.
+Materialization complete in 528.07s
+Loaded new graph in 538.44s
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Adding data to data/FEED_INFO.csv... OK
+Finished updating data source.
+Updating graph...
+data/CALENDAR_DATES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/SHAPES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/CALENDAR.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/ROUTES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FREQUENCIES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/TRIPS.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/STOP_TIMES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FEED_INFO.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/STOPS.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/AGENCY.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+Finished calculating diff in 5.51s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+INFO | 2023-07-03 23:33:14,964 | Number of triples generated in total: 14.
+INFO | 2023-07-03 23:33:24,997 | 86 mapping rules retrieved.
+INFO | 2023-07-03 23:33:25,025 | Mapping partition with 1 groups generated.
+INFO | 2023-07-03 23:33:25,025 | Maximum number of rules within mapping group: 86.
+INFO | 2023-07-03 23:33:25,025 | Mappings processed in 1.608 seconds.
+No removed data detected in the data source, no need to run the mapping engine.
+Materialization complete in 9.07s
+Constructing new graph... OK (0.00s)
+Finished updating graph in 17.65s.
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Removing data from data/AGENCY.csv... OK
+Finished updating data source.
+Updating graph...
+data/CALENDAR_DATES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/SHAPES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/CALENDAR.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/ROUTES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FREQUENCIES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/TRIPS.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/STOP_TIMES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FEED_INFO.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/STOPS.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/AGENCY.csv
+	Found new data, saved to dataframe.
+	Found removed data, saved to dataframe.
+Finished calculating diff in 5.39s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+INFO | 2023-07-03 23:33:32,458 | Number of triples generated in total: 7.
+INFO | 2023-07-03 23:33:34,116 | 86 mapping rules retrieved.
+INFO | 2023-07-03 23:33:34,143 | Mapping partition with 1 groups generated.
+INFO | 2023-07-03 23:33:34,144 | Maximum number of rules within mapping group: 86.
+INFO | 2023-07-03 23:33:34,144 | Mappings processed in 1.623 seconds.
+Updating mappings... OK
+INFO | 2023-07-03 23:33:41,605 | Number of triples generated in total: 7.
+Materialization complete in 18.25s
+Constructing new graph... OK (0.00s)
+Finished updating graph in 26.62s.
+Restoring data sources...
+	Restoring data/AGENCY.csv... OK
+	Restoring data/FEED_INFO.csv... OK
+Restored data sources.
+Deleting .aux/snapshot.pkl... OK
+
+------------------------------------------------------
+Finished running test in 582.75s.
+Summary:
+	Created new version in 538.44s (9898825 triples)
+	Updated in 17.65s (9898839 triples)
+	Updated in 26.62s (9898839 triples)
+######################### 5 #########################
+INFO | 2023-07-03 23:34:55,018 | 86 mapping rules retrieved.
+INFO | 2023-07-03 23:34:55,047 | Mapping partition with 1 groups generated.
+INFO | 2023-07-03 23:34:55,047 | Maximum number of rules within mapping group: 86.
+INFO | 2023-07-03 23:34:55,047 | Mappings processed in 1.647 seconds.
+Running test test-morph-memory
+Loading new graph...
+data/SHAPES.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/ROUTES.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/STOPS.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/CALENDAR.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/AGENCY.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/STOP_TIMES.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/TRIPS.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/CALENDAR_DATES.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FREQUENCIES.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FEED_INFO.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+Finished calculating diff in 8.16s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+INFO | 2023-07-03 23:36:24,635 | Number of triples generated in total: 9898825.
+INFO | 2023-07-03 23:43:38,826 | 86 mapping rules retrieved.
+INFO | 2023-07-03 23:43:38,853 | Mapping partition with 1 groups generated.
+INFO | 2023-07-03 23:43:38,853 | Maximum number of rules within mapping group: 86.
+INFO | 2023-07-03 23:43:38,854 | Mappings processed in 1.606 seconds.
+No removed data detected in the data source, no need to run the mapping engine.
+Materialization complete in 515.00s
+Loaded new graph in 525.52s
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Adding data to data/FEED_INFO.csv... OK
+Finished updating data source.
+Updating graph...
+data/SHAPES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/ROUTES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/STOPS.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/CALENDAR.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/AGENCY.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/STOP_TIMES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/TRIPS.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/CALENDAR_DATES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FREQUENCIES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FEED_INFO.csv
+	Found new data, saved to dataframe.
+	No removed data, saved to dataframe.
+Finished calculating diff in 5.53s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+INFO | 2023-07-03 23:43:46,571 | Number of triples generated in total: 14.
+INFO | 2023-07-03 23:43:56,650 | 86 mapping rules retrieved.
+INFO | 2023-07-03 23:43:56,678 | Mapping partition with 1 groups generated.
+INFO | 2023-07-03 23:43:56,678 | Maximum number of rules within mapping group: 86.
+INFO | 2023-07-03 23:43:56,678 | Mappings processed in 1.600 seconds.
+No removed data detected in the data source, no need to run the mapping engine.
+Materialization complete in 9.38s
+Constructing new graph... OK (0.00s)
+Finished updating graph in 18.01s.
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Removing data from data/AGENCY.csv... OK
+Finished updating data source.
+Updating graph...
+data/SHAPES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/ROUTES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/STOPS.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/CALENDAR.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/AGENCY.csv
+	Found new data, saved to dataframe.
+	Found removed data, saved to dataframe.
+data/STOP_TIMES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/TRIPS.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/CALENDAR_DATES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FREQUENCIES.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+data/FEED_INFO.csv
+	No new data, saved to dataframe.
+	No removed data, saved to dataframe.
+Finished calculating diff in 5.44s.
+Saved snapshot to .aux/snapshot.pkl
+Materializing graph...
+Updating mappings... OK
+Running mapping engine on the new data...
+INFO | 2023-07-03 23:44:04,084 | Number of triples generated in total: 7.
+INFO | 2023-07-03 23:44:05,725 | 86 mapping rules retrieved.
+INFO | 2023-07-03 23:44:05,753 | Mapping partition with 1 groups generated.
+INFO | 2023-07-03 23:44:05,753 | Maximum number of rules within mapping group: 86.
+INFO | 2023-07-03 23:44:05,753 | Mappings processed in 1.606 seconds.
+Updating mappings... OK
+INFO | 2023-07-03 23:44:13,155 | Number of triples generated in total: 7.
+Materialization complete in 18.13s
+Constructing new graph... OK (0.00s)
+Finished updating graph in 26.57s.
+Restoring data sources...
+	Restoring data/AGENCY.csv... OK
+	Restoring data/FEED_INFO.csv... OK
+Restored data sources.
+Deleting .aux/snapshot.pkl... OK
+
+------------------------------------------------------
+Finished running test in 570.14s.
+Summary:
+	Created new version in 525.52s (9898825 triples)
+	Updated in 18.01s (9898839 triples)
+	Updated in 26.57s (9898839 triples)

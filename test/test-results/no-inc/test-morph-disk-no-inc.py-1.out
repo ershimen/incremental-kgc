@@ -1,0 +1,210 @@
+######################### 1 #########################
+INFO | 2023-06-29 15:37:59,128 | 86 mapping rules retrieved.
+INFO | 2023-06-29 15:37:59,160 | Mapping partition with 1 groups generated.
+INFO | 2023-06-29 15:37:59,160 | Maximum number of rules within mapping group: 86.
+INFO | 2023-06-29 15:37:59,161 | Mappings processed in 1.724 seconds.
+Running test gtfs-bench-csv-morph-disk-no-inc
+Loading new graph...
+INFO | 2023-06-29 15:38:00,157 | Number of triples generated in total: 2001.
+INFO | 2023-06-29 15:38:01,858 | 86 mapping rules retrieved.
+INFO | 2023-06-29 15:38:01,886 | Mapping partition with 1 groups generated.
+INFO | 2023-06-29 15:38:01,886 | Maximum number of rules within mapping group: 86.
+INFO | 2023-06-29 15:38:01,886 | Mappings processed in 1.644 seconds.
+Loaded new graph in 2.80s
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Adding data to data/FEED_INFO.csv... OK
+Finished updating data source.
+Updating graph...
+INFO | 2023-06-29 15:38:02,851 | Number of triples generated in total: 2015.
+INFO | 2023-06-29 15:38:04,553 | 86 mapping rules retrieved.
+INFO | 2023-06-29 15:38:04,580 | Mapping partition with 1 groups generated.
+INFO | 2023-06-29 15:38:04,581 | Maximum number of rules within mapping group: 86.
+INFO | 2023-06-29 15:38:04,581 | Mappings processed in 1.654 seconds.
+Finished updating graph in 2.68s.
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Removing data from data/AGENCY.csv... OK
+Finished updating data source.
+Updating graph...
+INFO | 2023-06-29 15:38:05,553 | Number of triples generated in total: 2015.
+Finished updating graph in 2.70s.
+Restoring data sources...
+	Restoring data/AGENCY.csv... OK
+	Restoring data/FEED_INFO.csv... OK
+Restored data sources.
+
+------------------------------------------------------
+Finished running test in 8.19s.
+Summary:
+	Created new version in 2.80s (2001 triples)
+	Updated in 2.68s (2015 triples)
+	Updated in 2.70s (2015 triples)
+######################### 2 #########################
+INFO | 2023-06-29 15:38:08,095 | 86 mapping rules retrieved.
+INFO | 2023-06-29 15:38:08,125 | Mapping partition with 1 groups generated.
+INFO | 2023-06-29 15:38:08,125 | Maximum number of rules within mapping group: 86.
+INFO | 2023-06-29 15:38:08,125 | Mappings processed in 1.715 seconds.
+Running test gtfs-bench-csv-morph-disk-no-inc
+Loading new graph...
+INFO | 2023-06-29 15:38:09,068 | Number of triples generated in total: 2001.
+INFO | 2023-06-29 15:38:10,766 | 86 mapping rules retrieved.
+INFO | 2023-06-29 15:38:10,793 | Mapping partition with 1 groups generated.
+INFO | 2023-06-29 15:38:10,794 | Maximum number of rules within mapping group: 86.
+INFO | 2023-06-29 15:38:10,794 | Mappings processed in 1.643 seconds.
+Loaded new graph in 2.73s
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Adding data to data/FEED_INFO.csv... OK
+Finished updating data source.
+Updating graph...
+INFO | 2023-06-29 15:38:11,755 | Number of triples generated in total: 2015.
+INFO | 2023-06-29 15:38:13,461 | 86 mapping rules retrieved.
+INFO | 2023-06-29 15:38:13,488 | Mapping partition with 1 groups generated.
+INFO | 2023-06-29 15:38:13,489 | Maximum number of rules within mapping group: 86.
+INFO | 2023-06-29 15:38:13,489 | Mappings processed in 1.659 seconds.
+Finished updating graph in 2.67s.
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Removing data from data/AGENCY.csv... OK
+Finished updating data source.
+Updating graph...
+INFO | 2023-06-29 15:38:14,468 | Number of triples generated in total: 2015.
+Finished updating graph in 2.71s.
+Restoring data sources...
+	Restoring data/AGENCY.csv... OK
+	Restoring data/FEED_INFO.csv... OK
+Restored data sources.
+
+------------------------------------------------------
+Finished running test in 8.13s.
+Summary:
+	Created new version in 2.73s (2001 triples)
+	Updated in 2.67s (2015 triples)
+	Updated in 2.71s (2015 triples)
+######################### 3 #########################
+INFO | 2023-06-29 15:38:16,999 | 86 mapping rules retrieved.
+INFO | 2023-06-29 15:38:17,028 | Mapping partition with 1 groups generated.
+INFO | 2023-06-29 15:38:17,028 | Maximum number of rules within mapping group: 86.
+INFO | 2023-06-29 15:38:17,028 | Mappings processed in 1.708 seconds.
+Running test gtfs-bench-csv-morph-disk-no-inc
+Loading new graph...
+INFO | 2023-06-29 15:38:17,976 | Number of triples generated in total: 2001.
+INFO | 2023-06-29 15:38:19,685 | 86 mapping rules retrieved.
+INFO | 2023-06-29 15:38:19,712 | Mapping partition with 1 groups generated.
+INFO | 2023-06-29 15:38:19,712 | Maximum number of rules within mapping group: 86.
+INFO | 2023-06-29 15:38:19,712 | Mappings processed in 1.655 seconds.
+Loaded new graph in 2.73s
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Adding data to data/FEED_INFO.csv... OK
+Finished updating data source.
+Updating graph...
+INFO | 2023-06-29 15:38:20,682 | Number of triples generated in total: 2015.
+INFO | 2023-06-29 15:38:22,396 | 86 mapping rules retrieved.
+INFO | 2023-06-29 15:38:22,423 | Mapping partition with 1 groups generated.
+INFO | 2023-06-29 15:38:22,423 | Maximum number of rules within mapping group: 86.
+INFO | 2023-06-29 15:38:22,423 | Mappings processed in 1.663 seconds.
+Finished updating graph in 2.70s.
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Removing data from data/AGENCY.csv... OK
+Finished updating data source.
+Updating graph...
+INFO | 2023-06-29 15:38:23,409 | Number of triples generated in total: 2015.
+Finished updating graph in 2.72s.
+Restoring data sources...
+	Restoring data/AGENCY.csv... OK
+	Restoring data/FEED_INFO.csv... OK
+Restored data sources.
+
+------------------------------------------------------
+Finished running test in 8.16s.
+Summary:
+	Created new version in 2.73s (2001 triples)
+	Updated in 2.70s (2015 triples)
+	Updated in 2.72s (2015 triples)
+######################### 4 #########################
+INFO | 2023-06-29 15:38:25,944 | 86 mapping rules retrieved.
+INFO | 2023-06-29 15:38:25,973 | Mapping partition with 1 groups generated.
+INFO | 2023-06-29 15:38:25,974 | Maximum number of rules within mapping group: 86.
+INFO | 2023-06-29 15:38:25,974 | Mappings processed in 1.709 seconds.
+Running test gtfs-bench-csv-morph-disk-no-inc
+Loading new graph...
+INFO | 2023-06-29 15:38:26,923 | Number of triples generated in total: 2001.
+INFO | 2023-06-29 15:38:28,645 | 86 mapping rules retrieved.
+INFO | 2023-06-29 15:38:28,673 | Mapping partition with 1 groups generated.
+INFO | 2023-06-29 15:38:28,673 | Maximum number of rules within mapping group: 86.
+INFO | 2023-06-29 15:38:28,673 | Mappings processed in 1.661 seconds.
+Loaded new graph in 2.74s
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Adding data to data/FEED_INFO.csv... OK
+Finished updating data source.
+Updating graph...
+INFO | 2023-06-29 15:38:29,654 | Number of triples generated in total: 2015.
+INFO | 2023-06-29 15:38:31,373 | 86 mapping rules retrieved.
+INFO | 2023-06-29 15:38:31,401 | Mapping partition with 1 groups generated.
+INFO | 2023-06-29 15:38:31,401 | Maximum number of rules within mapping group: 86.
+INFO | 2023-06-29 15:38:31,401 | Mappings processed in 1.668 seconds.
+Finished updating graph in 2.71s.
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Removing data from data/AGENCY.csv... OK
+Finished updating data source.
+Updating graph...
+INFO | 2023-06-29 15:38:32,398 | Number of triples generated in total: 2015.
+Finished updating graph in 2.74s.
+Restoring data sources...
+	Restoring data/AGENCY.csv... OK
+	Restoring data/FEED_INFO.csv... OK
+Restored data sources.
+
+------------------------------------------------------
+Finished running test in 8.21s.
+Summary:
+	Created new version in 2.74s (2001 triples)
+	Updated in 2.71s (2015 triples)
+	Updated in 2.74s (2015 triples)
+######################### 5 #########################
+INFO | 2023-06-29 15:38:34,937 | 86 mapping rules retrieved.
+INFO | 2023-06-29 15:38:34,966 | Mapping partition with 1 groups generated.
+INFO | 2023-06-29 15:38:34,967 | Maximum number of rules within mapping group: 86.
+INFO | 2023-06-29 15:38:34,967 | Mappings processed in 1.698 seconds.
+Running test gtfs-bench-csv-morph-disk-no-inc
+Loading new graph...
+INFO | 2023-06-29 15:38:35,926 | Number of triples generated in total: 2001.
+INFO | 2023-06-29 15:38:37,642 | 86 mapping rules retrieved.
+INFO | 2023-06-29 15:38:37,669 | Mapping partition with 1 groups generated.
+INFO | 2023-06-29 15:38:37,670 | Maximum number of rules within mapping group: 86.
+INFO | 2023-06-29 15:38:37,670 | Mappings processed in 1.659 seconds.
+Loaded new graph in 2.74s
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Adding data to data/FEED_INFO.csv... OK
+Finished updating data source.
+Updating graph...
+INFO | 2023-06-29 15:38:38,651 | Number of triples generated in total: 2015.
+INFO | 2023-06-29 15:38:40,364 | 86 mapping rules retrieved.
+INFO | 2023-06-29 15:38:40,392 | Mapping partition with 1 groups generated.
+INFO | 2023-06-29 15:38:40,392 | Maximum number of rules within mapping group: 86.
+INFO | 2023-06-29 15:38:40,392 | Mappings processed in 1.664 seconds.
+Finished updating graph in 2.71s.
+Updating data source...
+	Adding data to data/AGENCY.csv... OK
+	Removing data from data/AGENCY.csv... OK
+Finished updating data source.
+Updating graph...
+INFO | 2023-06-29 15:38:41,391 | Number of triples generated in total: 2015.
+Finished updating graph in 2.73s.
+Restoring data sources...
+	Restoring data/AGENCY.csv... OK
+	Restoring data/FEED_INFO.csv... OK
+Restored data sources.
+
+------------------------------------------------------
+Finished running test in 8.20s.
+Summary:
+	Created new version in 2.74s (2001 triples)
+	Updated in 2.71s (2015 triples)
+	Updated in 2.73s (2015 triples)
