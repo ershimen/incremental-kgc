@@ -388,6 +388,7 @@ def load_kg(mapping_file: str,
 
     # Materialize new data
     print("Materializing graph...")
+    start = time.time()
     if has_new_data:
         print("Updating mappings... ", end='')
         new_mapping_file = _update_mappings(mapping_graph=mapping_graph_new_data,
@@ -397,13 +398,13 @@ def load_kg(mapping_file: str,
         print("OK")
         print("Running mapping engine on the new data...")
         if engine == 'morph':
-            config = "[GTFS-Madrid-Bench]\nmappings: %s" % new_mapping_file
+            config = "[inc]\nmappings: %s" % new_mapping_file
             if method == 'disk':
                 new_triples = morph_kgc.materialize(config)
             elif method == 'memory':
                 new_triples = morph_kgc.materialize(config, new_data_dict)
         elif engine == 'rdfizer':
-            config =  """
+            config = """
             [default]
             main_directory: %s/new_data/data
 
@@ -443,13 +444,13 @@ def load_kg(mapping_file: str,
                                             mapping_file=mapping_file)
         print("OK")
         if engine == 'morph':
-            config = "[GTFS-Madrid-Bench]\nmappings: %s" % new_mapping_file
+            config = "[inc]\nmappings: %s" % new_mapping_file
             if method == 'disk':
                 removed_triples = morph_kgc.materialize(config)
             elif method == 'memory':
                 removed_triples = morph_kgc.materialize(config, removed_data_dict)
         elif engine == 'rdfizer':
-            config =  """
+            config = """
             [default]
             main_directory: %s/removed_data/data
 
@@ -478,12 +479,16 @@ def load_kg(mapping_file: str,
         print("No removed data detected in the data source, no need to run the mapping engine.")
         removed_triples = rdflib.Graph()
     
+    end = time.time()
+    print("Materialization complete in %.2fs" % (end-start))
+
     # Return the materialized graph if it is a new version
     if old_graph is None:
         return new_triples
 
     # Return the new graph = old graph + new graph - removed graph
     print("Constructing new graph... ", end='')
+    start = time.time()
     # old_plus_new_graph = old_graph + new_graph
     for new_triple in new_triples:
         old_graph.add(new_triple)
@@ -491,6 +496,7 @@ def load_kg(mapping_file: str,
     for removed_triple in removed_triples:
         old_graph.remove(removed_triple)
     # TODO: (optimization) check which of the graphs is larger, and run the for loop in the other (validate) 
-    print("OK")
+    end = time.time()
+    print("OK (%.2fs)" % (end-start))
 
     return old_graph
