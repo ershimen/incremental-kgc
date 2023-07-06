@@ -283,19 +283,17 @@ def load_kg(mapping_file: str,
     if engine == 'rdfizer' and method != 'disk':
         raise ValueError("'rdfizer' engine only supports 'disk' method")
     
-    # TODO: comprobar si old_graph es None, y no leer snapshot
-
-    # load snapshot
-    if os.path.exists(snapshot_file):
+    # Check if first version or not
+    if old_graph is None:
+        # First version
+        new_version = True
+        sp = dict()
+    else:
+        # Subsequent updates
         new_version = False
-        # snapshot exists
         with open(snapshot_file, 'rb') as f:
             sp = pickle.load(file=f)
-    else:
-        new_version = True
-        # first version
-        sp = dict()
-    
+
     # Read mapping
     mapping_graph_new_data = rdflib.Graph().parse(mapping_file)
     mapping_graph_removed_data = rdflib.Graph().parse(mapping_file)
