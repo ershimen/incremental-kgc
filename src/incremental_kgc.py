@@ -4,9 +4,6 @@ import os
 import pickle
 import time
 
-import morph_kgc
-from rdfizer import semantify
-
 import constants
 
 def _get_sources_from_mapping(mapping_graph: rdflib.Graph):
@@ -170,12 +167,14 @@ def _update_mappings(mapping_graph: rdflib.Graph, query_update: str, data_path: 
     return new_mapping_file
 
 
-def _materialize_set(engine: str, new_mapping_file: str, method: str, data_dict: dict, aux_data_path: str, type_p: str):
+def _materialize_set(engine: str, mapping_function, new_mapping_file: str, method: str, data_dict: dict, aux_data_path: str, type_p: str):
     """Runs the 'engine' mapping engine and returns the generated triples.
 
     Args:
         engine:
             The name of the mapping engine to materialize the graph: 'morph', 'rdfizer'.
+        mapping_function:
+            The function that performs the materialization.
         new_mapping_file:
             The file name that contains the mappings.
         method:
@@ -193,9 +192,11 @@ def _materialize_set(engine: str, new_mapping_file: str, method: str, data_dict:
     if engine == 'morph':
         config = "[inc]\nmappings: %s" % new_mapping_file
         if method == 'disk':
-            triples = morph_kgc.materialize(config)
+            triples = mapping_function(config)
+            #triples = morph_kgc.materialize(config)
         elif method == 'memory':
-            triples = morph_kgc.materialize(config, data_dict)
+            triples = mapping_function(config, data_dict)
+            #triples = morph_kgc.materialize(config, data_dict)
     elif engine == 'rdfizer':
         if type_p == 'new':
             sub_dir = 'new_data'
@@ -225,7 +226,8 @@ def _materialize_set(engine: str, new_mapping_file: str, method: str, data_dict:
         with open(aux_data_path + '/%s/rdfizer_config.ini' % sub_dir, "w") as f:
             f.write(config % (aux_data_path, sub_dir, aux_data_path, sub_dir, sub_dir, new_mapping_file))
 
-        semantify(config_path=aux_data_path + '/%s/rdfizer_config.ini' % sub_dir)
+        mapping_function(config_path=aux_data_path + '/%s/rdfizer_config.ini' % sub_dir)
+        #semantify(config_path=aux_data_path + '/%s/rdfizer_config.ini' % sub_dir)
 
         # Read the output of semantify()
         triples = rdflib.Graph().parse(aux_data_path + '/%s/%s.nt' % (sub_dir, sub_dir))
@@ -283,6 +285,12 @@ def load_kg(mapping_file: str,
     if engine == 'rdfizer' and method != 'disk':
         raise ValueError("'rdfizer' engine only supports 'disk' method")
     
+    # Import only the used mapping engine
+    if engine == 'morph':
+        from morph_kgc import materialize
+    elif engine == 'rdfizer':
+        from rdfizer import semantify
+
     # Check if first version or not
     if old_graph is None:
         # First version
@@ -450,6 +458,11 @@ def load_kg(mapping_file: str,
     else:
         raise RuntimeError('\'method\' is not \'disk\' or \'memory\', This should not happend :(')
 
+    if engine == 'morph':
+        mapping_func = materialize
+    elif engine == 'rdfizer':
+        mapping_func = semantify
+
     # Materialize new data
     print("Materializing graph...")
     start = time.time()
@@ -462,11 +475,12 @@ def load_kg(mapping_file: str,
         print("OK")
         print("Running mapping engine on the new data...")
         new_triples = _materialize_set(engine=engine,
-                                   new_mapping_file=new_mapping_file,
-                                   method=method,
-                                   data_dict=new_data_dict,
-                                   aux_data_path=aux_data_path,
-                                   type_p='new')
+                                       mapping_function=mapping_func,
+                                       new_mapping_file=new_mapping_file,
+                                       method=method,
+                                       data_dict=new_data_dict,
+                                       aux_data_path=aux_data_path,
+                                       type_p='new')
     else:
         print("No new data detected in the data source, no need to run the mapping engine.")
         new_triples = rdflib.Graph()
@@ -482,11 +496,12 @@ def load_kg(mapping_file: str,
         print("Running mapping engine on the removed data...")
 
         removed_triples = _materialize_set(engine=engine,
-                                       new_mapping_file=new_mapping_file,
-                                       method=method,
-                                       data_dict=removed_data_dict,
-                                       aux_data_path=aux_data_path,
-                                       type_p='removed')
+                                           mapping_function=mapping_func,
+                                           new_mapping_file=new_mapping_file,
+                                           method=method,
+                                           data_dict=removed_data_dict,
+                                           aux_data_path=aux_data_path,
+                                           type_p='removed')
     else:
         print("No removed data detected in the data source, no need to run the mapping engine.")
         removed_triples = rdflib.Graph()
