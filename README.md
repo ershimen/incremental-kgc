@@ -63,13 +63,11 @@ If you are interested in contributing to the project, please make sure to open a
 To support a new data source, the first step is to think a Python object that can represent one file. For instance, a CSV file can be represented as a `pandas.Dataframe`. Then, the following functions need to be expanded. Please read the documentation of each function before writing changes.
 
 * `_process_source()`. The function must return three Python objects, each one with the following information.
+    - The set of current data, which represents the data from the current version of the data source.
     - The set of new data, which represents the data present in the data source but not in the snapshot.
     - The set of removed data, which represents the data present in the snapshot but not in the data source.
-    - The set of old data, which represents the data from the snapshot.
 
 * `_save_data_to_file()`. This function must serialize the Python object used to represent each source.
-
-* `_calculate_new_snapshot_df()`. This function calculates the new snapshot data by adding the set of new data and subtracting the set of removed data. These sets of data are the ones returned by `_process_source()`.
 
 ### Supporting new mapping engines
 
