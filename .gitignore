@@ -24,6 +24,4 @@ test-notebooks
 
 *.ods
 
-*.sh
-
 *.ipynb
