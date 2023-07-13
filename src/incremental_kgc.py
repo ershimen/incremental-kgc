@@ -31,7 +31,7 @@ def _get_sources_from_mapping(mapping_graph: rdflib.Graph):
 
 def _process_source(source_file: str, snapshot: dict, new_version: bool, extension: str):
     """Process a source according to the type. It reads the data from 'source_file' and returns
-    the old, new and removed data.
+    the current, new and removed data.
 
     Args:
         source_file:
@@ -44,9 +44,9 @@ def _process_source(source_file: str, snapshot: dict, new_version: bool, extensi
             Extension of 'source_file'.
 
     Returns:
-        A triple (old_data, new_data, removed_data). The type depends on 'extension'. All three items
-        have null intersection (no duplicates between them). TODO: ??
-            - old_data: data that is in snapshot.
+        A triple (current_data, new_data, removed_data). The type depends on 'extension'.
+        new_data and removed_data have null intersection (no duplicates between them).
+            - current_data: data from source_file.
             - new_data: data that is in source_file and not in snapshot.
             - removed_data: data that is in snapshot and not in source_file.
     """
@@ -70,7 +70,7 @@ def _process_source(source_file: str, snapshot: dict, new_version: bool, extensi
         # Calculate new data
         new_data = pd.merge(df_ds, diff, how='inner')
 
-        return df_sp, new_data, removed_data
+        return df_ds, new_data, removed_data
     elif extension == '.json':
         raise NotImplementedError(f'The file type {extension} is not supported yet!')
     else:
@@ -109,36 +109,6 @@ def _save_data_to_file(data_path:str, source_file: str, extension: str, data: ob
         raise NotImplementedError(f'The file type {extension} is not supported yet!')
 
     return new_file_path
-
-
-def _calculate_new_snapshot_df(old_data: object, new_data: object, removed_data: object, extension: str):
-    """Calculates the new snapshot data (old + new - removed). The type of 'old_data', 'new_data' and 'removed_data'
-    depends on 'extension'.
-
-    Args:
-        old_data:
-            The old data in the snapshot.
-        new_data:
-            The new data.
-        removed_data:
-            The removed data.
-        extension:
-            The extension. It determines how to handle the other parameters:
-                .csv: python dictionary.
-
-    Returns:
-        The resulting data from the operation old_data + new_data - removed_data.
-    """
-
-    # New snapshot data = old_dataold_graph + new_data - removed_data
-    if extension == '.csv':
-        old_plus_new = pd.concat([old_data, new_data]) # no need to drop duplicates because there should not be any
-        old_plus_new_minus_rm = pd.concat([old_plus_new, removed_data]) # No need to concat two times removed_data (pd.concat([old_plus_new, removed_data, removed_data])) because there should not be any data in removed_data that is not already in old_plus_new
-        return old_plus_new_minus_rm
-    elif extension == '.json':
-        raise NotImplementedError(f'The file type {extension} is not supported yet!')
-    else:
-        raise NotImplementedError(f'The file type {extension} is not supported yet!')
 
 
 def _update_mappings(mapping_graph: rdflib.Graph, query_update: str, data_path: str, mapping_file: str):
@@ -331,7 +301,7 @@ def load_kg(mapping_file: str,
         _, extension = os.path.splitext(source_file)
         
         # Calculate new and removed data
-        old_data, new_data, removed_data = _process_source(source_file=source_file,
+        current_data, new_data, removed_data = _process_source(source_file=source_file,
                                                 snapshot=sp,
                                                 new_version=new_version,
                                                 extension=extension)
@@ -410,12 +380,14 @@ def load_kg(mapping_file: str,
         print(msg_new_data)
         print(msg_removed_data)
         
+        # Save the current in the snapshot
+        sp[source_file] = current_data
         # Save current snapshot data = old + new_data - removed_data
-        updated_snapshot_data = _calculate_new_snapshot_df(old_data=old_data,
-                                                           new_data=new_data,
-                                                           removed_data=removed_data,
-                                                           extension=extension)
-        sp[source_file] = updated_snapshot_data
+        # updated_snapshot_data = _calculate_new_snapshot_df(old_data=old_data,
+        #                                                    new_data=new_data,
+        #                                                    removed_data=removed_data,
+        #                                                    extension=extension)
+        # sp[source_file] = updated_snapshot_data
 
     end = time.time()
 
