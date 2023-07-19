@@ -1,5 +1,7 @@
 # Incremental Knowledge Graph Construction
 
+[![DOI](https://zenodo.org/badge/607618459.svg)](https://zenodo.org/badge/latestdoi/607618459)
+
 Incremental-KGC is a Python package that allows to efficiently materialize subsequent versions of knowledge graphs. It utilizes the previous version of a snapshot of the data source and the knowledge graph to materialize only the modified data. Currently it supports both additions and deletions in the data source.
 
 ## Usage 
